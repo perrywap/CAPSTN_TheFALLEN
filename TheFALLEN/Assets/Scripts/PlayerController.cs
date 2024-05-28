@@ -2,33 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Controller : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    private float horizontal;
-    private float speed = 8f;
-    private float jumpPower = 16f;
-    private bool isFacingRight = true;
+    #region VARIABLES
+    [SerializeField] private float _horizontal;
+    [SerializeField] private float _jumpSpeed;
+    [SerializeField] private float _jumpPower;
+    [SerializeField] private float _jumpPeak;
+    [SerializeField] private bool _isFacingRight = true;
 
-    [SerializeField] private Rigidbody2D rb; //rigid body of the player character
+    [SerializeField] private Rigidbody2D _rigidbody2d; //rigid body of the player character
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer; //make sure all platforms are in this layer
 
+    float tempJumpPeak = 0f;
+    #endregion
+
+
+    #region UNITY FUNCTIONS
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-
-        if (Input.GetButtonDown("Jump") && IsGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-        }
-
-        if (Input.GetButtonDown("Jump") && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
-
-        Flip();
+        //Debug.Log(_rigidbody2d.velocity.y);
+        Move();
+        Jump();
         BaseAtk();
         Skill1();
         Skill2();
@@ -43,8 +40,32 @@ public class Player_Controller : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        _rigidbody2d.velocity = new Vector2(_horizontal * _jumpSpeed, _rigidbody2d.velocity.y);
       
+    }
+    #endregion
+
+    private void Move()
+    {
+        if (this.GetComponent<Player>().IsJumping)
+            return;
+
+        _horizontal = Input.GetAxisRaw("Horizontal");
+
+        Flip();
+    }
+
+    private void Jump()
+    {
+        if (Input.GetButtonDown("Jump") && IsGrounded())
+        {
+            _rigidbody2d.velocity = new Vector2(_rigidbody2d.velocity.x, _jumpPower);   
+        }
+
+        if (Input.GetButtonDown("Jump") && _rigidbody2d.velocity.y > 0f)
+        {
+            _rigidbody2d.velocity = new Vector2(_rigidbody2d.velocity.x, _rigidbody2d.velocity.y * 0.5f);
+        }
     }
 
     private bool IsGrounded()
@@ -54,9 +75,9 @@ public class Player_Controller : MonoBehaviour
 
     private void Flip()
     {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        if (_isFacingRight && _horizontal < 0f || !_isFacingRight && _horizontal > 0f)
         {
-            isFacingRight = !isFacingRight;
+            _isFacingRight = !_isFacingRight;
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
@@ -138,7 +159,7 @@ public class Player_Controller : MonoBehaviour
         }
     }
     private void CharaSwap5()
-    {
+    { 
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             //call Saint Swap Function
