@@ -4,12 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< Updated upstream
   - GroundLayer
+=======
+  - level1CheckpointEnd
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - Ground

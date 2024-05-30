@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< Updated upstream
 public class EnemyBaseClass : UnitBaseClass
 {
     [SerializeField] private float detectionRange = 5f;
@@ -48,16 +49,48 @@ public class EnemyBaseClass : UnitBaseClass
     public void TakeDamage(float damage)
     {
         HP -= damage;
+=======
+public class EnemyBaseClass : MonoBehaviour
+{
+    [SerializeField] protected float HP = 10;
+    [SerializeField] private float attack;
+    [SerializeField] private float defense;
+    [SerializeField] private float attackSpeed;
+    [SerializeField] protected float speed;  // Made protected to be accessible by derived classes
+
+    public float Attack => attack;
+    public float Defense => defense;
+    public float AttackSpeed => attackSpeed;
+
+    public virtual void TakeDamage(float damage)
+    {
+        HP -= damage;
+        Debug.Log("Damage has been taken.");
+>>>>>>> Stashed changes
         if (HP <= 0)
         {
             Die();
         }
     }
 
+<<<<<<< Updated upstream
     private void Die()
     {
         // Logic for enemy death
         Debug.Log("Enemy died!");
         Destroy(gameObject);
     }
+=======
+    protected virtual void Die()
+    {
+        Debug.Log("Enemy dead");
+        Destroy(gameObject);
+    }
+
+   
+    protected virtual void Update()
+    {
+        // Base update logic
+    }
+>>>>>>> Stashed changes
 }
