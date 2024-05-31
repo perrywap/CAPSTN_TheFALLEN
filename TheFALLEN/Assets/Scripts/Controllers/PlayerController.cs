@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,7 +9,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _horizontal;
     [SerializeField] private float _jumpSpeed;
     [SerializeField] private float _jumpPower;
-    [SerializeField] private float _jumpPeak;
     [SerializeField] private bool _isFacingRight = true;
 
     [SerializeField] private Rigidbody2D _rigidbody2d; //rigid body of the player character
@@ -21,6 +21,10 @@ public class PlayerController : MonoBehaviour
 
     #region UNITY FUNCTIONS
     // Update is called once per frame
+    private void Start()
+    {
+        _rigidbody2d = GetComponent<Rigidbody2D>();
+    }
     void Update()
     {
         //Debug.Log(_rigidbody2d.velocity.y);
@@ -40,32 +44,33 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody2d.velocity = new Vector2(_horizontal * _jumpSpeed, _rigidbody2d.velocity.y);
-      
+         _rigidbody2d.velocity = new Vector2(_horizontal * _jumpSpeed, _rigidbody2d.velocity.y);
     }
     #endregion
 
     private void Move()
     {
-        if (this.GetComponent<Player>().IsJumping)
-            return;
-
         _horizontal = Input.GetAxisRaw("Horizontal");
-
         Flip();
     }
 
     private void Jump()
     {
-        if (Input.GetButtonDown("Jump") && IsGrounded())
-        {
-            _rigidbody2d.velocity = new Vector2(_rigidbody2d.velocity.x, _jumpPower);   
-        }
+        //if (Input.GetButtonDown("Jump") && IsGrounded())
+        //{
+        //    _rigidbody2d.velocity = new Vector2(_rigidbody2d.velocity.x, _jumpPower);
+        //    this.GetComponent<Player>().IsJumping = true;
+        //}
 
-        if (Input.GetButtonDown("Jump") && _rigidbody2d.velocity.y > 0f)
-        {
-            _rigidbody2d.velocity = new Vector2(_rigidbody2d.velocity.x, _rigidbody2d.velocity.y * 0.5f);
-        }
+        ////if (Input.GetButtonDown("Jump") && _rigidbody2d.velocity.y > 0f)
+        ////{
+        ////    _rigidbody2d.velocity = new Vector2(_rigidbody2d.velocity.x, _rigidbody2d.velocity.y * 0.5f);
+        ////}
+
+        //if(_rigidbody2d.velocity.y > 0 && this.GetComponent<Player>().IsJumping) 
+        //{
+        //    _rigidbody2d.velocity
+        //}
     }
 
     private bool IsGrounded()
