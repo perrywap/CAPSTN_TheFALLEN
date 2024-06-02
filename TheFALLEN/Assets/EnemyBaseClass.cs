@@ -4,34 +4,39 @@ using UnityEngine;
 
 public class EnemyBaseClass : MonoBehaviour
 {
-    [SerializeField] protected float HP = 10;
+    [SerializeField] protected float HP = 10f;
     [SerializeField] private float attack;
     [SerializeField] private float defense;
     [SerializeField] private float attackSpeed;
-    [SerializeField] protected float speed;  // Made protected to be accessible by derived classes
+    [SerializeField] public float speed = 4f ;  // Made protected to be accessible by derived classes
 
     public float Attack => attack;
     public float Defense => defense;
     public float AttackSpeed => attackSpeed;
 
-    public void TakeDamage(float damage) override
+    // Declared as virtual to allow overriding in derived classes
+    public virtual void TakeDamage(float damage)
     {
-        HP -= damage;
-        Debug.Log("Damage has been taken.");
-        if (HP <= 0)
+        if (damage > 0)
         {
-            Die();
+            HP -= damage;
+            Debug.Log("Damage has been taken.");
+            if (HP <= 0)
+            {
+                Die();
+            }
         }
     }
 
-      public void Die() override
+    // Declared as virtual to allow overriding in derived classes
+    public virtual void Die()
     {
         Debug.Log("Enemy dead");
         Destroy(gameObject);
     }
 
-   
-    private void Update()
+    // Mark the Update method as virtual
+    protected virtual void Update()
     {
         // Base update logic
     }
