@@ -9,13 +9,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _horizontal;
     [SerializeField] private float _jumpSpeed;
     [SerializeField] private float _jumpPower;
-    [SerializeField] private bool _isFacingRight = true;
+    [SerializeField] private bool _isFacingRight;
 
     [SerializeField] private Rigidbody2D _rigidbody2d; //rigid body of the player character
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer; //make sure all platforms are in this layer
-
-    float tempJumpPeak = 0f;
     #endregion
 
 
@@ -29,17 +27,10 @@ public class PlayerController : MonoBehaviour
     {
         //Debug.Log(_rigidbody2d.velocity.y);
         Move();
-        Jump();
+        Flip();
         BaseAtk();
-        Skill1();
-        Skill2();
-        Skill3();
-        Skill4();
-        CharaSwap1();
-        CharaSwap2();
-        CharaSwap3();
-        CharaSwap4();
-        CharaSwap5();
+        UseSkill();
+        CharacterSwap();
     }
 
     private void FixedUpdate()
@@ -51,31 +42,6 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         _horizontal = Input.GetAxisRaw("Horizontal");
-        Flip();
-    }
-
-    private void Jump()
-    {
-        //if (Input.GetButtonDown("Jump") && IsGrounded())
-        //{
-        //    _rigidbody2d.velocity = new Vector2(_rigidbody2d.velocity.x, _jumpPower);
-        //    this.GetComponent<Player>().IsJumping = true;
-        //}
-
-        ////if (Input.GetButtonDown("Jump") && _rigidbody2d.velocity.y > 0f)
-        ////{
-        ////    _rigidbody2d.velocity = new Vector2(_rigidbody2d.velocity.x, _rigidbody2d.velocity.y * 0.5f);
-        ////}
-
-        //if(_rigidbody2d.velocity.y > 0 && this.GetComponent<Player>().IsJumping) 
-        //{
-        //    _rigidbody2d.velocity
-        //}
-    }
-
-    private bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
     private void Flip()
@@ -98,77 +64,71 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Skill1()
+    private void UseSkill()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.U))
         {
-            //call skill 1 function here
-            Debug.Log("skill 1 active");
+            this.GetComponent<Player>().IsUsingSkill = true;
+            this.GetComponent<Player>().ActivateSupportSkill();
         }
-    }
-    private void Skill2()
-    {
-        if (Input.GetKeyDown(KeyCode.W))
+
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            //call skill 2 function here
-            Debug.Log("skill 2 active");
+            this.GetComponent<Player>().IsUsingSkill = true;
+            this.GetComponent<Player>().ActivateLightSkill();
         }
-    }
-    private void Skill3()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
+
+        if (Input.GetKeyDown(KeyCode.O))
         {
-            //call skill 3 function here
-            Debug.Log("skill 3 active");
+            this.GetComponent<Player>().IsUsingSkill = true;
+            this.GetComponent<Player>().ActivateHeavySkill();
         }
-    }
-    private void Skill4()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
+
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            //call skill 4 function here
-            Debug.Log("skill 4 active");
+            this.GetComponent<Player>().IsUsingSkill = true;
+            this.GetComponent<Player>().ActivateUltimateSkill();
         }
     }
 
-    private void CharaSwap1()
+    private void CharacterSwap()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if(this.GetComponent<Player>().IsGrounded && !this.GetComponent<Player>().IsAttacking)
         {
-            //call Hero Swap function
-            Debug.Log("Hero Active");
-        }
-    }
-    private void CharaSwap2()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            //call Lancer Swap Function
-            Debug.Log("Lancer Active");
-        }
-    }
-    private void CharaSwap3()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            //call Archer Swap Function
-            Debug.Log("Archer Active");
-        }
-    }
-    private void CharaSwap4()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            //call Wizard Swap Function
-            Debug.Log("Wizard Active");
-        }
-    }
-    private void CharaSwap5()
-    { 
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            //call Saint Swap Function
-            Debug.Log("Saint Active");
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                //call Hero Swap function
+                Debug.Log("Switched to HERO");
+                CharacterSwitchManager.Instance.ChangeCharacter(0);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                //call Lancer Swap function
+                Debug.Log("Switched to LANCER");
+                CharacterSwitchManager.Instance.ChangeCharacter(1);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                //call Archer Swap function
+                Debug.Log("Switched to ARCHER");
+                CharacterSwitchManager.Instance.ChangeCharacter(2);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                //call Wizard Swap function
+                Debug.Log("Switched to WIZARD");
+                CharacterSwitchManager.Instance.ChangeCharacter(3);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                //call Saint Swap function
+                Debug.Log("Switched to SAINT");
+                CharacterSwitchManager.Instance.ChangeCharacter(4);
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class JumpController : MonoBehaviour
@@ -28,17 +29,26 @@ public class JumpController : MonoBehaviour
 
     private void Update()
     {
-        if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) &&  IsGrounded())
+        IsGrounded();
+        Jump();
+        
+    }
+    #endregion
+
+    #region PRIVATE FUNCTIONS
+    private void Jump()
+    {
+        if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)) && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, _jumpPower);
-            this.GetComponent <Player>().IsJumping = true;
+            this.GetComponent<Player>().IsJumping = true;
             _jumpCounter = 0;
         }
 
         if (rb.velocity.y > 0 && this.GetComponent<Player>().IsJumping)
         {
             _jumpCounter += Time.deltaTime;
-            if(_jumpCounter > _jumpTime) 
+            if (_jumpCounter > _jumpTime)
             {
                 this.GetComponent<Player>().IsJumping = false;
             }
@@ -54,7 +64,7 @@ public class JumpController : MonoBehaviour
             rb.velocity += _vecGravity * _jumpMultiplier * Time.deltaTime;
         }
 
-        if(Input.GetButtonUp("Jump") || Input.GetKeyUp(KeyCode.UpArrow))
+        if (Input.GetButtonUp("Jump") || Input.GetKeyUp(KeyCode.W))
         {
             this.GetComponent<Player>().IsJumping = false;
             _jumpCounter = 0f;
@@ -68,15 +78,16 @@ public class JumpController : MonoBehaviour
         if (rb.velocity.y < 0)
         {
             rb.velocity -= _vecGravity * _fallMultiplier * Time.deltaTime;
+            this.GetComponent<Player>().IsFalling = true;
         }
     }
-    #endregion
-
-    #region PRIVATE FUNCTIONS
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCapsule(_groundCheck.position, new Vector2(1.05f, 0.05f),
+        this.GetComponent<Player>().IsFalling = false;
+        this.GetComponent<Player>().IsGrounded = Physics2D.OverlapCapsule(_groundCheck.position, new Vector2(1.05f, 0.05f),
             CapsuleDirection2D.Horizontal, 0, _groundLayer);
+        
+        return this.GetComponent<Player>().IsGrounded;
     }
     #endregion
 }

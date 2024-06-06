@@ -9,10 +9,10 @@ TagManager:
   - level2CheckpointBack
   - level3CheckpointFront
   - level3CheckpointBack
-  - level4CheckpointFront
   - OneWayPlatform
   - NextMapTrigger
   - PreviousMapTrigger
+  - PlayerSpawnArea
   layers:
   - Default
   - TransparentFX
