@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAI : EnemyBaseClass
@@ -11,12 +10,14 @@ public class EnemyAI : EnemyBaseClass
     [SerializeField] private GameObject pointB;
     [SerializeField] private Transform _groundCheck; // Transform for ground check position
     [SerializeField] private LayerMask _groundLayer; // LayerMask for the ground layer
+    [SerializeField] private float patrolPauseDuration = 2f; // Duration to pause at patrol points
 
     private Rigidbody2D rb;
     private Transform player;
     private Transform currentPoint;
     private bool isChasing = false;
     private bool isGrounded = false;
+    private bool isPatrolling = true; // To check if the enemy is patrolling
 
     void Start()
     {
@@ -67,7 +68,10 @@ public class EnemyAI : EnemyBaseClass
         else
         {
             isChasing = false;
-            Patrol();
+            if (isPatrolling)
+            {
+                Patrol();
+            }
         }
 
         CheckGrounded();
@@ -83,7 +87,16 @@ public class EnemyAI : EnemyBaseClass
         if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f)
         {
             currentPoint = currentPoint == pointB.transform ? pointA.transform : pointB.transform;
+            StartCoroutine(PatrolPause());
         }
+    }
+
+    private IEnumerator PatrolPause()
+    {
+        isPatrolling = false; 
+        rb.velocity = Vector2.zero; // Stop enemy movement
+        yield return new WaitForSeconds(patrolPauseDuration); 
+        isPatrolling = true; 
     }
 
     private void ChasePlayer()
