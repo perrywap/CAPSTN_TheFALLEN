@@ -293,7 +293,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _horizontal: 0
-  _moveSpeed: 8
+  _jumpSpeed: 8
+  _jumpPower: 30
   _isFacingRight: 1
   _rigidbody2d: {fileID: 5124438233482021942}
   groundCheck: {fileID: 0}
