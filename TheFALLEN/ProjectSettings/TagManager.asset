@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - level1CheckpointEnd
+  - level2CheckpointFront
+  - level2CheckpointBack
+  - level3CheckpointFront
+  - level3CheckpointBack
+  - OneWayPlatform
+  - NextMapTrigger
+  - PreviousMapTrigger
+  - PlayerSpawnArea
   layers:
   - Default
   - TransparentFX
