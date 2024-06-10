@@ -7,8 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     #region VARIABLES
     [SerializeField] private float _horizontal;
-    [SerializeField] private float _jumpSpeed;
-    [SerializeField] private float _jumpPower;
+    [SerializeField] private float _moveSpeed;
     [SerializeField] private bool _isFacingRight;
 
     [SerializeField] private Rigidbody2D _rigidbody2d; //rigid body of the player character
@@ -35,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-         _rigidbody2d.velocity = new Vector2(_horizontal * _jumpSpeed, _rigidbody2d.velocity.y);
+         _rigidbody2d.velocity = new Vector2(_horizontal * _moveSpeed, _rigidbody2d.velocity.y);
     }
     #endregion
 
