@@ -376,10 +376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2264662836ca941b3b30c299fcc13a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingState: {fileID: 11400000, guid: 0a586645a7f56e44ebb8438468453a06, type: 2}
-  levelManager: {fileID: 11400000, guid: fc97a234feed4434699278b0f8c343be, type: 2}
-  playerManager: {fileID: 11400000, guid: d2637d1a89ed5ec4db8adf4519926661, type: 2}
-  uiManager: {fileID: 0}
 --- !u!4 &314845581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1884137216545889872, guid: 2545a02d8347f3e4492a79d81b1f01e0, type: 3}
@@ -1104,6 +1100,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5627661627211174627, guid: 2545a02d8347f3e4492a79d81b1f01e0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1193,8 +1193,8 @@ MonoBehaviour:
   _followCam: {fileID: 7767953889148164024}
   smoothTime: 0.2
   positionOffset: {x: 0, y: 0, z: -10}
-  xLimit: {x: -16.41, y: 15.75}
-  yLimit: {x: -8.3, y: -0.66}
+  xLimit: {x: -10.32, y: 10.64}
+  yLimit: {x: -5.5, y: -0.62}
 --- !u!1 &1367672222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1332,63 +1332,6 @@ Transform:
   - {fileID: 1208514766}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1417556279
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2519593232782525387, guid: 99ac35bcf6ed04d4ca6b482e014825c7, type: 3}
-      propertyPath: m_Name
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267253323495740410, guid: 99ac35bcf6ed04d4ca6b482e014825c7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267253323495740410, guid: 99ac35bcf6ed04d4ca6b482e014825c7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267253323495740410, guid: 99ac35bcf6ed04d4ca6b482e014825c7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267253323495740410, guid: 99ac35bcf6ed04d4ca6b482e014825c7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267253323495740410, guid: 99ac35bcf6ed04d4ca6b482e014825c7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267253323495740410, guid: 99ac35bcf6ed04d4ca6b482e014825c7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267253323495740410, guid: 99ac35bcf6ed04d4ca6b482e014825c7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267253323495740410, guid: 99ac35bcf6ed04d4ca6b482e014825c7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267253323495740410, guid: 99ac35bcf6ed04d4ca6b482e014825c7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267253323495740410, guid: 99ac35bcf6ed04d4ca6b482e014825c7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 99ac35bcf6ed04d4ca6b482e014825c7, type: 3}
 --- !u!1 &1480059596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,7 +1551,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.029898
+  orthographic size: 9.8682995
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1698,7 +1641,7 @@ Transform:
   m_GameObject: {fileID: 7767953889148164024}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -10.87, y: -5.55, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1860,4 +1803,3 @@ SceneRoots:
   - {fileID: 846444942}
   - {fileID: 1386182689}
   - {fileID: 493228392}
-  - {fileID: 1417556279}

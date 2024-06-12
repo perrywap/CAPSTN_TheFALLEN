@@ -23,6 +23,7 @@ public class UnitBase : MonoBehaviour
     [SerializeField] private bool _isGrounded;
     [SerializeField] private bool _isAttacking;
     [SerializeField] private bool _isUsingSkill;
+    [SerializeField] private bool _isMoving;
     #endregion
 
     #region GETTERS & SETTERS
@@ -31,18 +32,79 @@ public class UnitBase : MonoBehaviour
     public float AttackPoints { get { return _attackPoints; } set { _attackPoints = value; } }
     public float DefensePoints { get { return _defensePoints; } set { _defensePoints = value; } }
     public float AttackSpeed { get { return _attackSpeed; } set { _attackSpeed = value; } }
-    public bool IsDead { get { return _isDead; } set { _isDead = value; } }
-    public bool IsJumping { get { return _isJumping; } set { _isJumping = value; } }
-    public bool IsFalling { get { return _isFalling; } set { _isFalling = value; } }
-    public bool IsGrounded { get { return _isGrounded; } set { _isGrounded = value; } }
-    public bool IsAttacking { get { return _isAttacking; } set { _isAttacking = value; } }
-    public bool IsUsingSkill { get { return _isUsingSkill; } set { _isUsingSkill = value; } }
+    public bool IsDead 
+    { 
+        get { return _isDead; } 
+        set 
+        { 
+            _isDead = value;
+            _animator.SetBool("isDead", value);
+        } 
+    }
+    public bool IsJumping 
+    { 
+        get { return _isJumping; } 
+        set 
+        { 
+            _isJumping = value;
+            _animator.SetBool("isJumping", value);
+        } 
+    }
+    public bool IsFalling 
+    { 
+        get { return _isFalling; } 
+        set 
+        {
+            _isFalling = value;
+            _animator.SetBool("isFalling", value);
+        }
+    }
+    public bool IsGrounded 
+    { 
+        get { return _isGrounded; } 
+        set 
+        { 
+            _isGrounded = value;
+            _animator.SetBool("isGrounded", value);
+        }
+    }
+    public bool IsAttacking 
+    {
+        get { return _isAttacking; } 
+        set 
+        {
+            _isAttacking = value;
+            _animator.SetBool("isAttacking", value);
+        }
+    }
+    public bool IsUsingSkill 
+    { 
+        get { return _isUsingSkill; } 
+        set 
+        {
+            _isUsingSkill = value;
+            _animator.SetBool("isUsingSkill", value);
+        }
+    }
+    public bool IsMoving 
+    { 
+        get { return _isMoving; } 
+        set 
+        {
+            _isMoving = value;
+            _animator.SetBool("isMoving", value);
+        }
+    }
     #endregion
 
     #region UNITY FUNCTIONS
     private void Start()
     {
 
+    }
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
     }
     #endregion
 

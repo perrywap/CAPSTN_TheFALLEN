@@ -289,15 +289,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2519593232782525387}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f256362be5e21645820781e87888354, type: 3}
+  m_Script: {fileID: 11500000, guid: cc2e18d0947908b49915fbca981d0848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _horizontal: 0
-  _jumpSpeed: 8
-  _jumpPower: 30
+  _moveSpeed: 8
   _isFacingRight: 1
   _rigidbody2d: {fileID: 5124438233482021942}
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 9086393350794378125}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -359,6 +358,35 @@ MonoBehaviour:
   _isAttacking: 0
   _isUsingSkill: 0
   character: 1
+  SupportSkillCoolDownTime: 0
+  SupportSkillNextTime: 0
+  LightSkillCoolDownTime: 0
+  LightSkillNextTime: 0
+  HeavySkillCoolDownTime: 0
+  HeavySkillNextTime: 0
+  UltimateSkillCoolDownTime: 0
+  UltimateSkillNextTime: 0
+  isAttacking: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  JumpDamage: {fileID: 0}
+  JumpDamageSpawn: {fileID: 0}
+  thrustRange: 0
+  duration: 0
+  interval: 0
+  damagePerStrike: 0
+  attackRadius: 0
+  attackTimer: 0
+  spear: {fileID: 0}
+  spearSpawn: {fileID: 0}
+  throwSpeed: 0
+  damageUlt: 0
+  explosionRad: 0
+  rbSpear: {fileID: 0}
 --- !u!1 &4921197649215227951
 GameObject:
   m_ObjectHideFlags: 0

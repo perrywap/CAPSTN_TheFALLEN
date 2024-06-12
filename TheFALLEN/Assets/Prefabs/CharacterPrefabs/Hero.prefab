@@ -289,14 +289,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2519593232782525387}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f256362be5e21645820781e87888354, type: 3}
+  m_Script: {fileID: 11500000, guid: cc2e18d0947908b49915fbca981d0848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _horizontal: 0
   _moveSpeed: 8
   _isFacingRight: 1
   _rigidbody2d: {fileID: 5124438233482021942}
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 9086393350794378125}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

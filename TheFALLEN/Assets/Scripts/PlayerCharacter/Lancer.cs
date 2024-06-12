@@ -5,12 +5,19 @@ using UnityEngine;
 
 public class Lancer : Player
 {
+    [Header("Support Skill")]
     [SerializeField] private float SupportSkillCoolDownTime;
     [SerializeField] private float SupportSkillNextTime;
+
+    [Header("Light Skill")]
     [SerializeField] private float LightSkillCoolDownTime;
     [SerializeField] private float LightSkillNextTime;
+
+    [Header("Heavy Skill")]
     [SerializeField] private float HeavySkillCoolDownTime;
     [SerializeField] private float HeavySkillNextTime;
+
+    [Header("Ultimate Skill")]
     [SerializeField] private float UltimateSkillCoolDownTime;
     [SerializeField] private float UltimateSkillNextTime;
 
@@ -94,7 +101,7 @@ public class Lancer : Player
 
             // Deal damage to the enemy
             Debug.Log("Hit enemy: " + closestEnemy.name);
-            closestEnemy.GetComponent<Enemy>().TakeDamage(10); //swap with take damage script ng enemy on this
+            //closestEnemy.GetComponent<Enemy>().TakeDamage(10); //swap with take damage script ng enemy on this
         }
 
         Debug.Log("Lancer is using THRUST skill");
@@ -114,7 +121,7 @@ public class Lancer : Player
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRadius, enemyLayer);
             foreach (Collider2D enemy in hitEnemies)
             {
-                enemy.GetComponent<Enemy>().TakeDamage(damagePerStrike);
+                //enemy.GetComponent<Enemy>().TakeDamage(damagePerStrike);
             }
 
             attackTimer += interval;

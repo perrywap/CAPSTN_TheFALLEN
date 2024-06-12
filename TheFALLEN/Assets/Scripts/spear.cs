@@ -19,7 +19,7 @@ public class spear : MonoBehaviour
         Enemy enemy = hitInfo.GetComponent<Enemy>();
         if (enemy != null)
         {
-            enemy.TakeDamage(damage);
+            //enemy.TakeDamage(damage);
         }
 
         // Destroy the bullet after it hits something

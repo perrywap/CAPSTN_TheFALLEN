@@ -41,6 +41,16 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         _horizontal = Input.GetAxisRaw("Horizontal");
+
+        if (_horizontal > 0f || _horizontal < 0f)
+        {
+            this.GetComponent<Player>().IsMoving = true;
+        }
+        else
+        {
+            this.GetComponent<Player>().IsMoving = false;
+        }
+
     }
 
     private void Flip()
