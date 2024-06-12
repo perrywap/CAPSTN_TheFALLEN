@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 7550358535879756753}
   - component: {fileID: 3090109927896797656}
   - component: {fileID: 7865404982115719649}
+  - component: {fileID: 957872151770768396}
   m_Layer: 0
   m_Name: Lancer
   m_TagString: Player
@@ -357,6 +358,7 @@ MonoBehaviour:
   _isGrounded: 0
   _isAttacking: 0
   _isUsingSkill: 0
+  _isMoving: 0
   character: 1
   SupportSkillCoolDownTime: 0
   SupportSkillNextTime: 0
@@ -387,6 +389,27 @@ MonoBehaviour:
   damageUlt: 0
   explosionRad: 0
   rbSpear: {fileID: 0}
+--- !u!95 &957872151770768396
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2519593232782525387}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e0815a52941e5044905dee5e0facfb6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4921197649215227951
 GameObject:
   m_ObjectHideFlags: 0
