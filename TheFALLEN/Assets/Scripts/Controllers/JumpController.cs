@@ -38,7 +38,8 @@ public class JumpController : MonoBehaviour
     #region PRIVATE FUNCTIONS
     private void Jump()
     {
-        if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)) && IsGrounded())
+        if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)) 
+            && IsGrounded() && this.GetComponent<Player>().CanMove)
         {
             rb.velocity = new Vector2(rb.velocity.x, _jumpPower);
             this.GetComponent<Player>().IsJumping = true;
