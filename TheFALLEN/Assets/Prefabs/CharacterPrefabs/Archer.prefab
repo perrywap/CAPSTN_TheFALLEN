@@ -155,6 +155,7 @@ Transform:
   - {fileID: 2771840754622992805}
   - {fileID: 5290128366211110409}
   - {fileID: 9086393350794378125}
+  - {fileID: 6199919663125175114}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1651312913068427285
@@ -360,6 +361,20 @@ MonoBehaviour:
   _isUsingSkill: 0
   _isMoving: 0
   character: 2
+  SupportSkillCoolDownTime: 0
+  SupportSkillNextTime: 0
+  LightSkillCoolDownTime: 0
+  LightSkillNextTime: 0
+  HeavySkillCoolDownTime: 0
+  HeavySkillNextTime: 0
+  UltimateSkillCoolDownTime: 0
+  UltimateSkillNextTime: 0
+  isAttacking: 0
+  chargedProjectile: {fileID: 5914554235377707856, guid: 917a65bc8b5a09e4598fe957e3f6d496, type: 3}
+  chargeSpeed: 5
+  chargeTime: 5
+  arrowPrefab: {fileID: 5914554235377707856, guid: 41c96de2f35216349b3568b3727777f9, type: 3}
+  moveDirection: {x: 0, y: 0, z: 0}
 --- !u!95 &623138556760751680
 Animator:
   serializedVersion: 5
@@ -465,3 +480,74 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &4925323753852560085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6199919663125175114}
+  - component: {fileID: 4437325874952875144}
+  m_Layer: 0
+  m_Name: arrow spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6199919663125175114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4925323753852560085}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8267253323495740410}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4437325874952875144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4925323753852560085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5447014f0fe3c1b439eaea0cf0a4af2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 0
+  _maxHealth: 0
+  _attackPoints: 0
+  _defensePoints: 0
+  _attackSpeed: 0
+  _isDead: 0
+  _isJumping: 0
+  _isFalling: 0
+  _isGrounded: 0
+  _isAttacking: 0
+  _isUsingSkill: 0
+  _isMoving: 0
+  character: 0
+  SupportSkillCoolDownTime: 0
+  SupportSkillNextTime: 0
+  LightSkillCoolDownTime: 0
+  LightSkillNextTime: 0
+  HeavySkillCoolDownTime: 0
+  HeavySkillNextTime: 0
+  UltimateSkillCoolDownTime: 0
+  UltimateSkillNextTime: 0
+  isAttacking: 0
+  chargedProjectile: {fileID: 0}
+  chargeSpeed: 0
+  chargeTime: 0
+  arrowPrefab: {fileID: 5914554235377707856, guid: 41c96de2f35216349b3568b3727777f9, type: 3}
+  moveDirection: {x: 0, y: 0, z: 0}
