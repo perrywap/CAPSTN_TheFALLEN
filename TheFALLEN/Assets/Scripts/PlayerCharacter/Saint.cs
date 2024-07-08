@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Saint : Player
+public class Saint : UnitBase
 {
     [Header("Support Skill")]
     [SerializeField] private float supportSkillCooldownTime;
@@ -19,24 +19,27 @@ public class Saint : Player
     [SerializeField] private float healNextTime;
     [SerializeField] private float healAmount;
 
-    [Header("Debuff Skill")]
-    [SerializeField] private float debuffCooldownTime;
-    [SerializeField] private float debuffNextTime;
-    [SerializeField] private float debuffDuration;
-
     [Header("Revive Skill")]
     [SerializeField] private float reviveCooldownTime;
     [SerializeField] private float reviveNextTime;
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-        // Call the skill activation methods based on player input or other conditions
+        // Handle cooldowns or other update-related tasks specific to Saint
     }
 
     #region OVERRIDABLE FUNCTIONS
     public override void ActivateSupportSkill()
     {
-        // Example of activating a support skill
+        if (Time.time - supportSkillNextTime < supportSkillCooldownTime)
+        {
+            return;
+        }
+        supportSkillNextTime = Time.time;
+
+        // Implement support skill logic here
+        Debug.Log("Saint is using SUPPORT skill");
     }
 
     public void ActivateBarrierSkill()
@@ -47,7 +50,6 @@ public class Saint : Player
         }
         barrierNextTime = Time.time;
 
-        // Cast the barrier at the specified position
         Instantiate(barrierPrefab, barrierSpawn.position, barrierSpawn.rotation);
 
         Debug.Log("Saint is using BARRIER skill");
@@ -61,24 +63,9 @@ public class Saint : Player
         }
         healNextTime = Time.time;
 
-        // Heal all allies
         HealAllAllies(healAmount);
 
         Debug.Log("Saint is using HEAL skill");
-    }
-
-    public void ActivateDebuffSkill()
-    {
-        if (Time.time - debuffNextTime < debuffCooldownTime)
-        {
-            return;
-        }
-        debuffNextTime = Time.time;
-
-        // Apply debuff to enemies
-        ApplyDebuffToEnemies(debuffDuration);
-
-        Debug.Log("Saint is using DEBUFF skill");
     }
 
     public void ActivateReviveSkill()
@@ -89,7 +76,6 @@ public class Saint : Player
         }
         reviveNextTime = Time.time;
 
-        // Revive a fallen ally
         ReviveFallenAlly();
 
         Debug.Log("Saint is using REVIVE skill");
@@ -99,11 +85,6 @@ public class Saint : Player
     private void HealAllAllies(float amount)
     {
         // Implement the logic to heal all allies
-    }
-
-    private void ApplyDebuffToEnemies(float duration)
-    {
-        // Implement the logic to apply debuff to enemies
     }
 
     private void ReviveFallenAlly()
