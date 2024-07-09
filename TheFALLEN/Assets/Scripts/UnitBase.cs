@@ -23,7 +23,7 @@ public class UnitBase : MonoBehaviour
 
     [Header("Heavy Skill")]
     [SerializeField] private float _heavySkillCooldown;
-    [SerializeField] private bool _canUseheavySkill;
+    [SerializeField] private bool _canUseHeavySkill;
 
     [Header("Ultimate Skill")]
     [SerializeField] private float _ultiSkillCooldown;
@@ -127,7 +127,7 @@ public class UnitBase : MonoBehaviour
     public float LightSkillCooldown { get { return _lightSkillCooldown; } set { _lightSkillCooldown = value; } }
     public bool CanUseLightSkill { get { return _canUseLightSkill; } set { _canUseLightSkill = value; } }
     public float HeavySkillCooldown { get { return _heavySkillCooldown; } set { _heavySkillCooldown = value; } }
-    public bool CanUseHeavySkill { get { return _canUseheavySkill; } set { _canUseheavySkill = value; } }
+    public bool CanUseHeavySkill { get { return _canUseHeavySkill; } set { _canUseHeavySkill = value; } }
     public float UltimateSkillCooldown { get { return _ultiSkillCooldown; } set { _ultiSkillCooldown = value; } }
     public bool CanUseUltiSkill { get { return _canUseUltiSkill;} set {  _canUseUltiSkill = value;} }
     #endregion

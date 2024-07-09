@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Hero : Player
 {
-    [Header("Dash Skill")]
-    [SerializeField] private float dashingPower;
-    [SerializeField] private float dashingTime;
+    [Header("Dash Settings")]
+    [SerializeField] private float _dashingSpeed = 25f;
+    [SerializeField] private float dashingCooldown = 1f;
+    [SerializeField] private float dashingDuration = 0.5f;
+    private bool _isDashing;
+
+    public bool IsDashing { get { return _isDashing; } set {  _isDashing = value; } }
+
 
     #region OVERRIDABLE FUNCTIONS
     public override void ActivateSupportSkill()
     {
         Debug.Log("Hero is using DASH skill");
-        StartCoroutine(Dash());
+        if(this.CanUseSupportSkill)
+        {
+            StartCoroutine(Dash());
+        }
     }
 
     public override void ActivateLightSkill()
@@ -32,16 +41,19 @@ public class Hero : Player
     #endregion
 
     private IEnumerator Dash()
-    { 
-        Rigidbody2D rb = this.gameObject.GetComponent<Rigidbody2D>();
+    {
+        Debug.Log("Should dash");
+        _isDashing = true;
+        this.GetComponent<PlayerController>().Rb2D.velocity = new Vector2(this.transform.localScale.x * _dashingSpeed, 0f);
+        yield return new WaitForSeconds(dashingDuration);
+        _isDashing = false;
+        StartCoroutine(SupportSkillOnCoolDown());
+    }
 
+    private IEnumerator SupportSkillOnCoolDown()
+    {
         this.CanUseSupportSkill = false;
-        float originalGravity = rb.gravityScale;
-        rb.gravityScale = 0f;
-        rb.velocity = new Vector2(this.gameObject.transform.localScale.x * dashingPower, 0f);
-        Debug.Log(rb.velocity);
-        yield return new WaitForSeconds(dashingTime);
-        rb.gravityScale = originalGravity;
+        yield return new WaitForSeconds(this.SupportSkillCooldown);
         this.CanUseSupportSkill = true;
     }
 }

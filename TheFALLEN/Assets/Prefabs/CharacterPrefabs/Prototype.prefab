@@ -170,6 +170,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  _activeCharacter: 0
 --- !u!114 &7550358535879756753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,12 +222,12 @@ MonoBehaviour:
   _attackPoints: 0
   _defensePoints: 0
   _attackSpeed: 0
-  _supportSkillCooldown: 0
+  _supportSkillCooldown: 2
   _canUseSupportSkill: 1
   _lightSkillCooldown: 0
   _canUseLightSkill: 1
   _heavySkillCooldown: 0
-  _canUseheavySkill: 1
+  _canUseHeavySkill: 0
   _ultiSkillCooldown: 0
   _canUseUltiSkill: 1
   _isDead: 0
@@ -238,8 +239,9 @@ MonoBehaviour:
   _isMoving: 0
   _canMove: 0
   character: 0
-  dashingPower: 100
-  dashingTime: 1
+  _dashingSpeed: 40
+  dashingCooldown: 1
+  dashingDuration: 0.2
 --- !u!61 &7237026987513103576
 BoxCollider2D:
   m_ObjectHideFlags: 0
