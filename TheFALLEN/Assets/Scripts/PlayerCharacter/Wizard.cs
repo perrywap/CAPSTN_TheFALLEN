@@ -4,25 +4,31 @@ using UnityEngine;
 
 public class Wizard : Player
 {
-    [SerializeField] private float LightSkillCoolDownTime;
-    [SerializeField] private float LightSkillNextTime;
-    [SerializeField] private float LightSkillActiveTime;
-    [SerializeField] private float LightSkillOffTime;
+    [SerializeField] private float SupportSkillCoolDownTime;
+    [SerializeField] private float SupportSkillNextTime;
+    [SerializeField] private float SupportSkillActiveTime;
+    [SerializeField] private float SupportSkillOffTime;
+    [SerializeField] private float HeavySkillCoolDownTime;
+    [SerializeField] private float HeavySkillNextTime;
+
+    [SerializeField] private Explosion_Bullet explosionBullet;
+    [SerializeField] Transform Spawn;
+
     #region OVERRIDABLE FUNCTIONS
     public override void ActivateSupportSkill()
     {
         Debug.Log("Wizard is using FLOAT skill");
-        if (Time.time - LightSkillNextTime < LightSkillCoolDownTime)
+        if (Time.time - SupportSkillNextTime < SupportSkillCoolDownTime)
         {
             return;
         }
-        LightSkillNextTime = Time.time;
+        SupportSkillNextTime = Time.time;
 
-        Rigidbody2d rb2d = GetComponent<Rigidbody2D>();
-        rb2d.enabled = false;
-        if (Time.time - LightSkillActiveTime < LightSkillOffTime)
+        this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        
+        if (Time.time - SupportSkillActiveTime < SupportSkillOffTime)
         {
-            rb2d.enabled = true;
+            this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         }
 
         
@@ -36,6 +42,14 @@ public class Wizard : Player
     public override void ActivateHeavySkill()
     {
         Debug.Log("Wizard is using FLAME skill");
+        if (Time.time - HeavySkillNextTime < HeavySkillCoolDownTime)
+        {
+            return;
+        }
+        HeavySkillNextTime = Time.time;
+
+        //gagawa ng red ball bullet na sprite and the explosion radius na malaki na sprite bale 2 game objects sila na will spawn the bullet will spawn from wizard's shot spawn, tapos yung radius on hit ng bullet will spawn ontop of saan naghit
+        Instantiate(explosionBullet, Spawn.position, transform.rotation);
     }
 
     public override void ActivateUltimateSkill()
