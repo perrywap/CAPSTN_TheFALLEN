@@ -7,7 +7,10 @@ public class Archer : Player
     #region OVERRIDABLE FUNCTIONS
     public override void ActivateSupportSkill()
     {
+        this.GetComponent<Player>().IsUsingSkill = true;
         Debug.Log("Archer is using TUMBLE skill");
+
+        bool isArcherAttacking = this.GetComponent<Player>() != null;
     }
 
     public override void ActivateLightSkill()

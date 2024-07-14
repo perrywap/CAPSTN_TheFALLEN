@@ -34,7 +34,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-         _rigidbody2d.velocity = new Vector2(_horizontal * _moveSpeed, _rigidbody2d.velocity.y);
+        if (this.GetComponent<Player>().CanMove)
+        {
+            _rigidbody2d.velocity = new Vector2(_horizontal * _moveSpeed, _rigidbody2d.velocity.y);
+        }
+        else
+            _rigidbody2d.velocity = Vector2.zero;
     }
     #endregion
 
@@ -50,7 +55,7 @@ public class PlayerController : MonoBehaviour
         {
             this.GetComponent<Player>().IsMoving = false;
         }
-
+        
     }
 
     private void Flip()
@@ -69,7 +74,15 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             //call basic attack function here
+            this.GetComponent<Player>().IsAttacking = true;
+            this.GetComponent<Player>().CanMove = false;
             Debug.Log("Attack!");
+        }
+        if (Input.GetKeyUp(KeyCode.J))
+        {
+            //call basic attack function here
+            this.GetComponent<Player>().IsAttacking = false;
+            this.GetComponent<Player>().CanMove = true;
         }
     }
 
