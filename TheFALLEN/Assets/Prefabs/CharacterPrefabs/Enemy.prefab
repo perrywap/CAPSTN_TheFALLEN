@@ -223,7 +223,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 5
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0013e87328695ec43b1d1d45e306ae7e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -243,7 +243,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2519593232782525387}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0013e87328695ec43b1d1d45e306ae7e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -296,12 +296,22 @@ MonoBehaviour:
   _attackPoints: 0
   _defensePoints: 0
   _attackSpeed: 0
+  _supportSkillCooldown: 0
+  _canUseSupportSkill: 0
+  _lightSkillCooldown: 0
+  _canUseLightSkill: 0
+  _heavySkillCooldown: 0
+  _canUseheavySkill: 0
+  _ultiSkillCooldown: 0
+  _canUseUltiSkill: 0
   _isDead: 0
   _isJumping: 0
   _isFalling: 0
   _isGrounded: 0
   _isAttacking: 0
   _isUsingSkill: 0
+  _isMoving: 0
+  _canMove: 0
 --- !u!114 &8745189179554630560
 MonoBehaviour:
   m_ObjectHideFlags: 0
