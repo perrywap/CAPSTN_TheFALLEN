@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
             //if (this.GetComponent<Hero>().isDashing) { return; }
         }
 
+        
         ApplyMovement();
         CheckSurroundings();
     }
@@ -160,15 +161,24 @@ public class PlayerController : MonoBehaviour
     }
     private void ApplyMovement()
     {
+        // STATIONARY JUMP
         if (!this.GetComponent<Player>().isGrounded && movementInputDirection == 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
         }
-        else if (this.GetComponent<Player>().isGrounded)
+
+        // WALK
+        else if (this.GetComponent<Player>().isGrounded && this.GetComponent<Player>().canMove)
         {
             rb.velocity = new Vector2(moveSpeed * movementInputDirection, rb.velocity.y);
         }
-        else if(!this.GetComponent<Player>().isGrounded && movementInputDirection != 0)
+        else if (this.GetComponent<Player>().isGrounded && !this.GetComponent<Player>().canMove)
+        {
+            rb.velocity = Vector2.zero;
+        }
+
+        //MOVE LEFT OR RIGHT WHILE JUMPING
+        else if (!this.GetComponent<Player>().isGrounded && movementInputDirection != 0)
         {
             Vector2 forceToAdd = new Vector2(movementForceInAir * movementInputDirection, 0);
             rb.AddForce(forceToAdd);

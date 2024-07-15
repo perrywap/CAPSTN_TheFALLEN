@@ -111,7 +111,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 69816421
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4fed26b4cead4d94b8719aa6cbfcaef5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -255,14 +255,15 @@ MonoBehaviour:
   combatEnabled: 1
   inputTimer: 0.2
   attack1Radius: 0.8
-  attack1Damage: 10
+  attackDamage: 0
   attack1HitBoxPos: {fileID: 1357933476573106100}
   WhatIsDamageable:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   gotInput: 0
   isFirstAttack: 0
   attackCount: 0
+  anim: {fileID: 0}
 --- !u!114 &3239775133584771835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,7 +286,7 @@ MonoBehaviour:
   isGrounded: 0
   isAttacking: 0
   canJump: 0
-  canMove: 0
+  canMove: 1
   isDead: 0
   skill1CD: 1
   canUseSkill1: 1

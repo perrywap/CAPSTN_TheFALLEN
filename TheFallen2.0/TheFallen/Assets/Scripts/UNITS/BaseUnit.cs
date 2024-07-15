@@ -36,7 +36,7 @@ public class BaseUnit : MonoBehaviour
     public bool canUseSkill3;
     #endregion
 
-    #region
+    #region GETTERS AND SETTERS
     public float Health { get { return _health; } set { _health = value; } }
     public float MaxHealth { get { return _maxHealth; } set { _maxHealth = value; } }
     public float AttackPoints { get { return _attackPoints; } set { _attackPoints = value; } }
@@ -44,7 +44,18 @@ public class BaseUnit : MonoBehaviour
     public float AttackSpeed { get { return _attackSpeed; } set { _attackSpeed = value; } }
     #endregion
 
+    #region UNITY FUNCTIONS
+    private void Start()
+    {
+        canMove = true;
+    }
+    #endregion
+
     #region PUBLIC FUNCTIONS
+
+    #endregion
+
+    #region OVERRIDE FUNCTIONS
     public virtual void ActivateSkill1()
     {
 
