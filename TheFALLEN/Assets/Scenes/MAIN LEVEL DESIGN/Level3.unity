@@ -1128,7 +1128,7 @@ GameObject:
   - component: {fileID: 611436250}
   - component: {fileID: 611436251}
   m_Layer: 0
-  m_Name: Triggertoopenpath
+  m_Name: TriggerToOpenPath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
