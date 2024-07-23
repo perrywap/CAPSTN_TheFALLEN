@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     #region VARIABLES
     private float movementInputDirection;
-
     private Rigidbody2D rb;
     private Animator anim;
     private int amountOfJumpsLeft;    
@@ -39,8 +38,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.GetComponent<Player>().character == Character.HERO && this.GetComponent<Hero>().isDashing)
+        if (this.GetComponent<Player>().isUsingSkill)
             return;
+            
 
         CheckInput();
         CheckMovementDirection();
@@ -51,15 +51,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (this.GetComponent<Player>().character == Character.HERO && this.GetComponent<Hero>().isDashing)
-        {
-            return;
-            //if (this.GetComponent<Hero>().isDashing) { return; }
-        }
-
-        
-        ApplyMovement();
         CheckSurroundings();
+        if (this.GetComponent<Player>().isUsingSkill)
+            return;
+
+        ApplyMovement();        
     }
     #endregion
 
@@ -125,29 +121,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonUp("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
-        }
-
-        if(Input.GetKeyDown(KeyCode.U))
-        {
-            this.GetComponent<Player>().ActivateSkill1();
-        }
-
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            this.GetComponent<Player>().ActivateSkill2();
-        }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            this.GetComponent<Player>().ActivateSkill3();
-        }
-
-        if (this.GetComponent<Player>().character == Character.HERO) 
-        {
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                this.GetComponent<Hero>().ActivateSkill4();
-            }
         }
     }
 

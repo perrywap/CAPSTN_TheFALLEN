@@ -355,7 +355,10 @@ MonoBehaviour:
   maxHealth: 50
   knockBackSpeedX: 10
   knockBackSpeedY: 5
-  knockBackDuration: 0.1
+  knockBackDuration: 5
   knockBackDeathSpeedX: 15
   knockBackDeathSpeedY: 8
   applyKnockBack: 1
+  rbAlive: {fileID: 0}
+  rbDead: {fileID: 0}
+  playerIsOnLeft: 0
