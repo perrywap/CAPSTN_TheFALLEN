@@ -209,6 +209,8 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  walkingSound: {fileID: 8300000, guid: 2024b720c6394d14d98a90ecade335ef, type: 3}
+  jumpSound: {fileID: 8300000, guid: 30f291fa577ec6544bccb9909ace139b, type: 3}
 --- !u!114 &8111698692319205030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +261,7 @@ MonoBehaviour:
   isAttacking: 0
   canJump: 0
   canMove: 1
+  isUsingSkill: 0
   isDead: 0
   skill1CD: 0
   canUseSkill1: 0
@@ -266,7 +269,12 @@ MonoBehaviour:
   canUseSkill2: 0
   skill3CD: 0
   canUseSkill3: 0
-  character: 4
+  barrierCooldownTime: 0
+  barrierPrefab: {fileID: 0}
+  barrierSpawn: {fileID: 0}
+  healCooldownTime: 0
+  healAmount: 0
+  reviveCooldownTime: 0
 --- !u!1 &3917367189256970169
 GameObject:
   m_ObjectHideFlags: 0

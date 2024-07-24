@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     private float movementInputDirection;
     private Rigidbody2D rb;
     private Animator anim;
-    private int amountOfJumpsLeft;    
+    private int amountOfJumpsLeft;
+    private bool isWalkingSoundPlaying = false;
 
     [Header("Movement Values")]
     public float moveSpeed = 10f;
@@ -23,6 +24,11 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     public Transform groundCheck;
     public LayerMask whatIsGround;
+    public AudioClip walkingSound;
+    public AudioClip jumpSound;
+
+    private AudioSource walkingAudioSource;
+    private AudioSource jumpAudioSource;
 
     #endregion
 
@@ -30,9 +36,17 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();        
+        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         amountOfJumpsLeft = amountOfJumps;
+
+        // Initialize audio sources
+        walkingAudioSource = gameObject.AddComponent<AudioSource>();
+        walkingAudioSource.clip = walkingSound;
+        walkingAudioSource.loop = true; // Loop the walking sound
+
+        jumpAudioSource = gameObject.AddComponent<AudioSource>();
+        jumpAudioSource.clip = jumpSound;
     }
 
     // Update is called once per frame
@@ -40,13 +54,12 @@ public class PlayerController : MonoBehaviour
     {
         if (this.GetComponent<Player>().isUsingSkill)
             return;
-            
 
         CheckInput();
         CheckMovementDirection();
         UpdateAnimations();
         CheckIfCanJump();
-        
+
     }
 
     private void FixedUpdate()
@@ -55,7 +68,7 @@ public class PlayerController : MonoBehaviour
         if (this.GetComponent<Player>().isUsingSkill)
             return;
 
-        ApplyMovement();        
+        ApplyMovement();
     }
     #endregion
 
@@ -71,7 +84,7 @@ public class PlayerController : MonoBehaviour
         {
             amountOfJumpsLeft = amountOfJumps;
         }
-        
+
         if (amountOfJumpsLeft <= 0f)
         {
             this.GetComponent<Player>().canJump = false;
@@ -81,7 +94,7 @@ public class PlayerController : MonoBehaviour
             this.GetComponent<Player>().canJump = true;
         }
     }
-    
+
     private void CheckMovementDirection()
     {
         if (this.GetComponent<Player>().isFacingRight && movementInputDirection < 0)
@@ -93,20 +106,36 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if(Mathf.Abs(rb.velocity.x) >= 0.01f)
+        if (Mathf.Abs(rb.velocity.x) >= 0.01f)
         {
             this.GetComponent<Player>().isWalking = true;
+            if (this.GetComponent<Player>().isGrounded && !isWalkingSoundPlaying)
+            {
+                walkingAudioSource.Play();
+                isWalkingSoundPlaying = true;
+            }
         }
         else
         {
-            this.GetComponent<Player>().isWalking = false;  
+            this.GetComponent<Player>().isWalking = false;
+            if (isWalkingSoundPlaying)
+            {
+                walkingAudioSource.Stop();
+                isWalkingSoundPlaying = false;
+            }
+        }
+        if (!this.GetComponent<Player>().isGrounded && isWalkingSoundPlaying)
+        {
+            walkingAudioSource.Stop();
+            isWalkingSoundPlaying = false;
         }
     }
+
     private void UpdateAnimations()
     {
         anim.SetBool("isWalking", this.GetComponent<Player>().isWalking);
         anim.SetBool("isGrounded", this.GetComponent<Player>().isGrounded);
-        anim.SetFloat("yVelocity", rb.velocity.y);  
+        anim.SetFloat("yVelocity", rb.velocity.y);
     }
 
     private void CheckInput()
@@ -130,8 +159,12 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             amountOfJumpsLeft--;
+
+            // Play jump sound
+            jumpAudioSource.Play();
         }
     }
+
     private void ApplyMovement()
     {
         // STATIONARY JUMP
@@ -156,7 +189,7 @@ public class PlayerController : MonoBehaviour
             Vector2 forceToAdd = new Vector2(movementForceInAir * movementInputDirection, 0);
             rb.AddForce(forceToAdd);
 
-            if(Mathf.Abs(rb.velocity.x) > moveSpeed)
+            if (Mathf.Abs(rb.velocity.x) > moveSpeed)
             {
                 rb.velocity = new Vector2(moveSpeed * movementInputDirection, rb.velocity.y);
             }

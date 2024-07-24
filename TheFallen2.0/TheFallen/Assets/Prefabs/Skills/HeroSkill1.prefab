@@ -50,4 +50,5 @@ MonoBehaviour:
   _dashingSpeed: 25
   dashingDuration: 0.2
   trailRenderer: {fileID: 0}
+  dashSound: {fileID: 8300000, guid: 30f291fa577ec6544bccb9909ace139b, type: 3}
   isDashing: 0

@@ -114,3 +114,4 @@ MonoBehaviour:
   ultSwordPrefab: {fileID: 5294050330007528606, guid: 37c2978a5cde8c5419606d91f03a8545, type: 3}
   spawnPosition: {fileID: 7600068498954714481}
   landingPosition: {fileID: 7544574707052831147}
+  ultSkillSound: {fileID: 8300000, guid: 9838dd7d2f81bab498bc70b7278e70f9, type: 3}
