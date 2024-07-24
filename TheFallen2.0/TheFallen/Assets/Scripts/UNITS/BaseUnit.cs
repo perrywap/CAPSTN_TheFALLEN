@@ -19,6 +19,7 @@ public class BaseUnit : MonoBehaviour
     public bool isAttacking;
     public bool canJump;
     public bool canMove;
+    public bool isUsingSkill;
 
     [Header("Unit Status")]
     public bool isDead = false;

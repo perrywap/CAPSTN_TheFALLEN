@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst;
 using UnityEngine;
 
 public class CombatDummyController : MonoBehaviour
@@ -13,16 +14,17 @@ public class CombatDummyController : MonoBehaviour
     private bool knockBack;
     private float knockBackStart;
 
-    private PlayerController pc;
+    private GameObject player;
     private GameObject aliveGO, deadGO;
-    private Rigidbody2D rbAlive, rbDead;
+    public Rigidbody2D rbAlive, rbDead;
     private Animator aliveAnim;
+
+    public bool playerIsOnLeft;
+    private Vector3 playerDirection;
 
     private void Start()
     {
         currentHealth = maxHealth;
-
-        //pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
         aliveGO = transform.Find("Alive").gameObject;
         deadGO = transform.Find("Dead").gameObject;
@@ -43,7 +45,9 @@ public class CombatDummyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerDirection = player.transform.position - rbAlive.transform.position;
+        playerIsOnLeft = playerDirection.x < rbAlive.transform.position.x ? true : false;
     }
 
     private void Damage(float amount)
@@ -56,7 +60,8 @@ public class CombatDummyController : MonoBehaviour
 
         if (applyKnockBack && currentHealth > 0.0f)
         {
-            KnockBack(); 
+            float[] speed = { knockBackDeathSpeedX, knockBackDeathSpeedY };
+            KnockBack(speed);
         }
 
         if (currentHealth < 0.0f)
@@ -65,11 +70,15 @@ public class CombatDummyController : MonoBehaviour
         }
     }
 
-    private void KnockBack()
+    public void KnockBack(float[] speed)
     {
         knockBack = true;
         knockBackStart = Time.time;
-        rbAlive.velocity = new Vector2 (knockBackSpeedX, knockBackSpeedY);
+
+        if (playerIsOnLeft)
+            rbAlive.velocity = new Vector2(speed[0], speed[1]);
+        else if(!playerIsOnLeft)
+            rbAlive.velocity = new Vector2(-speed[0], speed[1]);
     }
 
     private void CheckKnockBack()
@@ -77,7 +86,7 @@ public class CombatDummyController : MonoBehaviour
         if(Time.time >= knockBackStart + knockBackDuration && knockBack)
         {
             knockBack = false;
-            rbAlive.velocity = new Vector2(0.0f, rbAlive.velocity.y);
+            rbAlive.velocity = new Vector2(0.0f, rbAlive.velocity.y); 
         }
     }    
 

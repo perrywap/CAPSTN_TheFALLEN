@@ -28,6 +28,9 @@ public class CombatController : MonoBehaviour
 
     private void Update()
     {
+        if (this.GetComponent<Player>().isUsingSkill)
+            return;
+
         CheckCombatInput();
         CheckAttacks();
     }
@@ -117,7 +120,7 @@ public class CombatController : MonoBehaviour
 
         foreach (Collider2D collider in detectedObjects)
         {
-            collider.transform.parent.SendMessage("Damage", attackDamage);
+            collider.transform.SendMessage("Damage", attackDamage);
         }
     }
 

@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour
 
         foreach (Collider2D collider in detectedObjects)
         {
-            collider.transform.parent.SendMessage("Damage", damageAmount);
+            collider.transform.SendMessage("Damage", damageAmount);
             Destroy(gameObject);
         }
     }

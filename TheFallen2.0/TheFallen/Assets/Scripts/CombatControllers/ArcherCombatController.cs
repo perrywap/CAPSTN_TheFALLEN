@@ -13,6 +13,8 @@ public class ArcherCombatController : CombatController
     private void OnBowDraw()
     {
         this.GetComponent<Player>().canMove = false;
+        this.GetComponent<Player>().isAttacking = true;
+
 
         if (combatEnabled)
         {
@@ -33,10 +35,6 @@ public class ArcherCombatController : CombatController
 
     public override void CheckCombatInput()
     {
-        if (this.GetComponent<Player>().isAttacking)
-            return;
-
-
         if(Input.GetKeyDown(KeyCode.J))
         {
             OnBowDraw();
