@@ -10,11 +10,21 @@ public class ArcherCombatController : CombatController
     [SerializeField] private bool startedDrawing;
     public float drawTimer;
 
+    protected override void Start()
+    {
+        base.Start();  // Call the base class Start method
+
+        // Ensure the AudioSource component is assigned
+        if (attackSound == null)
+        {
+            attackSound = GetComponent<AudioSource>();
+        }
+    }
+
     private void OnBowDraw()
     {
         this.GetComponent<Player>().canMove = false;
         this.GetComponent<Player>().isAttacking = true;
-
 
         if (combatEnabled)
         {
@@ -31,11 +41,17 @@ public class ArcherCombatController : CombatController
         gotInput = true;
         this.GetComponent<Player>().isAttacking = false;
         anim.SetBool("isDrawing", false);
+
+        // Play the attack sound when the bow is released
+        if (attackSound != null)
+        {
+            attackSound.Play();
+        }
     }
 
     public override void CheckCombatInput()
     {
-        if(Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             OnBowDraw();
         }
@@ -72,8 +88,8 @@ public class ArcherCombatController : CombatController
 
         GameObject newArrow = Instantiate(projectileGO, projectileSpawnArea.position, projectileSpawnArea.rotation);
         Projectile projectile = newArrow.GetComponent<Projectile>();
-        
-        if(drawTimer < .15f) 
+
+        if (drawTimer < .15f)
             newArrow.GetComponent<Rigidbody2D>().velocity = projectileSpawnArea.right * 10f;
         else
             newArrow.GetComponent<Rigidbody2D>().velocity = projectileSpawnArea.right * projectileForce;

@@ -6,9 +6,17 @@ public class SaintCombatController : CombatController
 {
     private Saint saint;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();  // Call the base class Start method
+
         saint = GetComponent<Saint>();
+
+        // Ensure the AudioSource component is assigned
+        if (attackSound == null)
+        {
+            attackSound = GetComponent<AudioSource>();
+        }
     }
 
     public override void CheckCombatInput()
@@ -28,6 +36,12 @@ public class SaintCombatController : CombatController
             saint.canMove = false;
             saint.isAttacking = true;
             saint.ActivateSkill1();
+
+            // Play the attack sound
+            if (attackSound != null)
+            {
+                attackSound.Play();
+            }
         }
         else if (Input.GetKeyDown(KeyCode.K))
         {

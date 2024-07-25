@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CombatController : MonoBehaviour
 {
     public bool combatEnabled;
     [SerializeField] private float inputTimer, attack1Radius;
-    public float attackDamage; 
+    public float attackDamage;
     [SerializeField] private Transform attack1HitBoxPos;
     [SerializeField] private LayerMask WhatIsDamageable;
+    [SerializeField] protected AudioSource attackSound;  // Add this line
 
     public bool gotInput;
     public bool isFirstAttack;
@@ -19,11 +19,17 @@ public class CombatController : MonoBehaviour
 
     public Animator anim;
 
-    private void Start()
+    protected virtual void Start()
     {
         isFirstAttack = true;
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
+
+        // Ensure the AudioSource component is assigned
+        if (attackSound == null)
+        {
+            attackSound = GetComponent<AudioSource>();
+        }
     }
 
     private void Update()
@@ -37,17 +43,15 @@ public class CombatController : MonoBehaviour
 
     public virtual void CheckCombatInput()
     {
-        if(this.GetComponent<Player>().isAttacking)
+        if (this.GetComponent<Player>().isAttacking)
         {
             this.GetComponent<Player>().canMove = false;
             return;
         }
         else
         {
-            this .GetComponent<Player>().canMove = true;
+            this.GetComponent<Player>().canMove = true;
         }
-
-            
 
         if (Input.GetKeyDown(KeyCode.J))
         {
@@ -57,6 +61,12 @@ public class CombatController : MonoBehaviour
                 lastInputTime = Time.time;
                 attackCount++;
                 anim.SetInteger("attackCount", attackCount);
+
+                // Play the attack sound
+                if (attackSound != null)
+                {
+                    attackSound.Play();
+                }
             }
         }
     }
@@ -108,7 +118,7 @@ public class CombatController : MonoBehaviour
             }
         }
 
-        if (Time.time >= lastInputTime + inputTimer) 
+        if (Time.time >= lastInputTime + inputTimer)
         {
             gotInput = false;
         }

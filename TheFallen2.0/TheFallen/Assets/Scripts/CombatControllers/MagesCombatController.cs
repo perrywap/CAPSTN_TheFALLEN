@@ -8,6 +8,16 @@ public class MagesCombatController : CombatController
     [SerializeField] private Transform projectileSpawnArea;
     [SerializeField] private float projectileForce;
 
+    protected override void Start()
+    {
+        base.Start();  // Call base class Start method
+
+        // Ensure the AudioSource component is assigned
+        if (attackSound == null)
+        {
+            attackSound = GetComponent<AudioSource>();
+        }
+    }
 
     public override void CheckCombatInput()
     {
@@ -16,7 +26,10 @@ public class MagesCombatController : CombatController
             this.GetComponent<Player>().canMove = false;
             return;
         }
-        else { this.GetComponent<Player>().canMove = true; }
+        else
+        {
+            this.GetComponent<Player>().canMove = true;
+        }
 
         if (Input.GetKeyDown(KeyCode.J))
         {
@@ -25,6 +38,12 @@ public class MagesCombatController : CombatController
             if (combatEnabled)
             {
                 gotInput = true;
+
+                // Play the attack sound
+                if (attackSound != null)
+                {
+                    attackSound.Play();
+                }
             }
         }
     }
