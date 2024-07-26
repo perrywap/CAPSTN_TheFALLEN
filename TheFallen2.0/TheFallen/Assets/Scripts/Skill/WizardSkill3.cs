@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Lancer : Player
+public class WizardSkill3 : SkillBase
 {
     
 }

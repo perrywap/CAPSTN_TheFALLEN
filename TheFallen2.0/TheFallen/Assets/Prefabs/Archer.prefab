@@ -471,9 +471,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2e398e1365597e4d881eeeb6ae3e999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillImage: {fileID: 0}
+  skillImage: {fileID: 21300000, guid: bb3f96f70a7092147b9d83df55710353, type: 3}
   skillCooldown: 0
-  canUseSkill: 0
+  canUseSkill: 1
   tumbleForce: 30
   isTumbling: 0
 --- !u!1 &6503021337285082585
@@ -612,9 +612,8 @@ MonoBehaviour:
   canUseSkill: 1
   spawnArea: {fileID: 3069477704301019494}
   arrowPrefab: {fileID: 2493320438003140104, guid: eca30eeb06896b04db66b8aefbeddced, type: 3}
-  arrowsToSpawn: 0
   projectileForce: 50
-  isRainingArrows: 0
+  shootArrows: 0
 --- !u!1 &8179533298814728209
 GameObject:
   m_ObjectHideFlags: 0

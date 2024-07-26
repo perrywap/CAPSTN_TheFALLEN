@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 3587876642892350779}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6, y: -0.00999999, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -162,9 +162,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f7e15518bbef14abacbb6c529be10e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillImage: {fileID: 0}
+  skillImage: {fileID: 21300000, guid: 9c73f707b2b73534685f36f6505ca634, type: 3}
   skillCooldown: 0
-  canUseSkill: 0
+  canUseSkill: 1
+  fallLocationGO: {fileID: 1681921835025871980, guid: 6c40d0bd969f0974f80426d82de48456, type: 3}
+  fallImpactPrefab: {fileID: 1159665283412615709, guid: 191a6bf47f06145439d021b592fb6224, type: 3}
+  isHighJumping: 0
+  launchTimer: 0.5
+  launchSpeed: 50
+  dropSpeed: 100
+  airMoveSpeed: 20
+  isLanding: 0
+  launchEnded: 0
 --- !u!1 &3670261868946208703
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,7 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9774d8f2709d2c43a6149bfc52079f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillImage: {fileID: 0}
+  skillImage: {fileID: 21300000, guid: 89ecc9b8a8c9af243b5033ac96c3e0ac, type: 3}
   skillCooldown: 0
   canUseSkill: 0
   damage: 0
