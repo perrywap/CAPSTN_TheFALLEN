@@ -170,6 +170,7 @@ MonoBehaviour:
   isHighJumping: 0
   launchTimer: 0.5
   launchSpeed: 50
+  airMoveDuration: 1.5
   dropSpeed: 100
   airMoveSpeed: 20
   isLanding: 0

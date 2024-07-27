@@ -13,6 +13,7 @@ public class LancerSkill1 : SkillBase
     [SerializeField] private bool isHighJumping;
     [SerializeField] private float launchTimer;
     [SerializeField] private float launchSpeed;
+    [SerializeField] private float airMoveDuration;
     [SerializeField] private float dropSpeed;
     [SerializeField] private float airMoveSpeed;
 
@@ -97,7 +98,7 @@ public class LancerSkill1 : SkillBase
 
         isHighJumping = true;
 
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSecondsRealtime(airMoveDuration);
         Fall();
     }
 

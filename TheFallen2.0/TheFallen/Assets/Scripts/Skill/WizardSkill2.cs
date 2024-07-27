@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WizardSkill2 : SkillBase
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private ParticleSystem freezeParticle;
+
+    public override void ActivateSkill()
     {
-        
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
+
+        freezeParticle.Play();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+
+        if (enemy != null)
+        {
+            Debug.Log("Is colliding");
+            enemy.transform.SendMessage("Damage", 0f);
+        }
     }
 }
