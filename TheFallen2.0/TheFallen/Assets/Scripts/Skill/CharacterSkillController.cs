@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterSkillController : MonoBehaviour
 {
-    [SerializeField] private SkillBase[] skills;
+    public SkillBase[] skills;
 
     private void Update()
     {

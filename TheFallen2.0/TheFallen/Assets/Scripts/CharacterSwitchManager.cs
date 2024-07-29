@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,7 +13,11 @@ public class CharacterSwitchManager : MonoBehaviour
     [SerializeField] private GameObject playerGO;
 
     [SerializeField] private Transform switchLocation;
-   
+    [SerializeField] private float switchCooldown;
+
+    private int lastCharacterIndex = 0;
+
+    public bool[] canSwitch = new bool[5];
     public static CharacterSwitchManager Instance { get; private set; }
     #endregion
 
@@ -24,10 +30,16 @@ public class CharacterSwitchManager : MonoBehaviour
     private void Start()
     {
         SwitchCharacter(0);
+        canSwitch[0] = true;
+        canSwitch[1] = true;
+        canSwitch[2] = true;
+        canSwitch[3] = true;
+        canSwitch[4] = true;
     }
     private void Update()
     {
         CheckSwitch();
+        CooldownIcon();
     }
     private void LateUpdate()
     {
@@ -41,42 +53,66 @@ public class CharacterSwitchManager : MonoBehaviour
     #region PRIVATE METHODS
     private void CheckSwitch()
     {
-        //if(playerGO.GetComponent<Player>().isGrounded && !playerGO.GetComponent<CombatController>().isAttacking)
         if (playerGO.GetComponent<Player>().isGrounded && !playerGO.GetComponent<Player>().isAttacking)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                //call Hero Swap function
-                Debug.Log("Switched to HERO");
-                SwitchCharacter(0);
+                if (playerGO.GetComponent<Player>().character == Character.HERO)
+                    return;
+
+                if (canSwitch[0])
+                {
+                    StartCoroutine(StartSwitchCooldown(lastCharacterIndex));
+                    SwitchCharacter(0);
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                //call Lancer Swap function
-                Debug.Log("Switched to LANCER");
-                SwitchCharacter(1);
+                if (playerGO.GetComponent<Player>().character == Character.LANCER)
+                    return;
+
+                if (canSwitch[1])
+                {
+                    StartCoroutine(StartSwitchCooldown(lastCharacterIndex));
+                    SwitchCharacter(1);
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                //call Archer Swap function
-                Debug.Log("Switched to ARCHER");
-                SwitchCharacter(2);
+                if (playerGO.GetComponent<Player>().character == Character.ARCHER)
+                    return;
+
+                if (canSwitch[2])
+                {
+                    StartCoroutine(StartSwitchCooldown(lastCharacterIndex));
+                    SwitchCharacter(2);
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
-                //call Wizard Swap function
-                Debug.Log("Switched to WIZARD");
-                SwitchCharacter(3);
+                if (playerGO.GetComponent<Player>().character == Character.WIZARD)
+                    return;
+
+                if (canSwitch[3])
+                {
+                    StartCoroutine(StartSwitchCooldown(lastCharacterIndex));
+                    SwitchCharacter(3);
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha5))
             {
-                //call Saint Swap function
-                Debug.Log("Switched to SAINT");
-                SwitchCharacter(4);
+                if (playerGO.GetComponent<Player>().character == Character.SAINT)
+                    return;
+
+                if (canSwitch[4])
+                {
+                    StartCoroutine(StartSwitchCooldown(lastCharacterIndex));
+                    SwitchCharacter(4);
+                }
             }
         }
     }
@@ -99,8 +135,27 @@ public class CharacterSwitchManager : MonoBehaviour
             playerGO.GetComponent<Player>().isFacingRight = false;
         }
         playerGO.transform.localScale = localscale;
-        
         Player player = playerGO.GetComponent<Player>();
+        HudManager.Instance.UpdateSkillIcons(index, playerGO);
+
+        lastCharacterIndex = index;
     }
     #endregion
+
+    private void CooldownIcon()
+    {
+        for (int i = 0; i < canSwitch.Length; i++)
+        {
+            if (!canSwitch[i])
+                HudManager.Instance.iconImages[i].fillAmount += Time.deltaTime / switchCooldown;
+        }
+    }
+
+    private IEnumerator StartSwitchCooldown(int index)
+    {
+        HudManager.Instance.iconImages[index].fillAmount = 0 / switchCooldown;
+        canSwitch[index] = false;
+        yield return new WaitForSecondsRealtime(switchCooldown);
+        canSwitch[index] = true;
+    }
 }
