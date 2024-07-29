@@ -23,11 +23,17 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D Rb2D { get { return _rigidbody2d; } set { _rigidbody2d = value; } }
     #endregion
 
+    //PlayerController movementEnabled;
+
     #region UNITY FUNCTIONS
     // Update is called once per frame
     private void Start()
     {
         _rigidbody2d = GetComponent<Rigidbody2D>();
+
+        //control = gameObject.GetComponent<PlayerController>();
+
+        //movementEnabled = GetComponent<PlayerController>();
     }
     void Update()
     {
@@ -38,6 +44,8 @@ public class PlayerController : MonoBehaviour
             if (this.GetComponent<Hero>().IsDashing) { return; }
         }
 
+        //movementEnabled.enabled = false;
+        //Debug.Log(movementEnabled);
 
         Move();
         Flip();
@@ -45,6 +53,10 @@ public class PlayerController : MonoBehaviour
         UseSkill();
         CharacterSwap();
     }
+
+
+
+
 
     private void FixedUpdate()
     {
@@ -61,6 +73,16 @@ public class PlayerController : MonoBehaviour
             _rigidbody2d.velocity = Vector2.zero;
     }
     #endregion
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+
+    //    if (collision.gameObject.CompareTag("cutsceneTrigger") == true)
+    //    {
+    //        movementEnabled.enabled = false;
+    //    }
+
+    //}
 
     private void Move()
     {

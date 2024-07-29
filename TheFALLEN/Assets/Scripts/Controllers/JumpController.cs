@@ -20,20 +20,37 @@ public class JumpController : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;
     #endregion
 
+    //JumpController jumpEnabled;
+
     #region UNITY FUNCTIONS
     private void Start()
     {
         _vecGravity = new Vector2(0, -Physics2D.gravity.y);
         rb = GetComponent<Rigidbody2D>();
+
+        //jumpEnabled = GetComponent<JumpController>();
     }
 
     private void Update()
     {
+        //jumpEnabled.enabled = false;
+
         IsGrounded();
         Jump();
         
+        
     }
     #endregion
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+
+    //    if (collision.gameObject.CompareTag("cutsceneTrigger") == true)
+    //    {
+    //        jumpEnabled.enabled = false;
+    //    }
+            
+    //}
 
     #region PRIVATE FUNCTIONS
     private void Jump()
