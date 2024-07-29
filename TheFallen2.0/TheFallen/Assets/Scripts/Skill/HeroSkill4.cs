@@ -17,7 +17,6 @@ public class HeroSkill4 : SkillBase
 
         if (swordGO.transform.position.y < landingPosition.position.y)
         {
-            Debug.Log("Should stop");
             swordGO.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         }
     }

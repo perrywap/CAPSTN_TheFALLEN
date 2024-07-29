@@ -9,15 +9,20 @@ using UnityEngine;
 public class CharacterSwitchManager : MonoBehaviour 
 {
     #region VARIABLES
-    [SerializeField] private GameObject[] playerPrefabs;
+    [Header("PlayerGO")]
     [SerializeField] private GameObject playerGO;
+    [SerializeField] private GameObject[] playerPrefabs;
 
+    [Header("Switch Settings")]
     [SerializeField] private Transform switchLocation;
     [SerializeField] private float switchCooldown;
-
+    public bool[] canSwitch = new bool[5];
     private int lastCharacterIndex = 0;
 
-    public bool[] canSwitch = new bool[5];
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip switchAudioClip;
+
     public static CharacterSwitchManager Instance { get; private set; }
     #endregion
 
@@ -29,6 +34,7 @@ public class CharacterSwitchManager : MonoBehaviour
 
     private void Start()
     {
+        audioSource = this.GetComponent<AudioSource>();
         SwitchCharacter(0);
         canSwitch[0] = true;
         canSwitch[1] = true;
@@ -119,6 +125,8 @@ public class CharacterSwitchManager : MonoBehaviour
 
     private void SwitchCharacter(int index)
     {
+        audioSource.Play();
+
         Vector3 localscale = Vector3.one;
 
         if (playerGO != null)
@@ -150,6 +158,16 @@ public class CharacterSwitchManager : MonoBehaviour
                 HudManager.Instance.iconImages[i].fillAmount += Time.deltaTime / switchCooldown;
         }
     }
+
+    //private void PlaySwitchSound(int index)
+    //{
+    //    // Play the audio clip for the corresponding character switch
+    //    if (audioSource != null && switchAudioClip.Length > index && switchAudioClip[index] != null)
+    //    {
+    //        audioSource.clip = switchAudioClip[index];
+    //        audioSource.Play();
+    //    }
+    //}
 
     private IEnumerator StartSwitchCooldown(int index)
     {

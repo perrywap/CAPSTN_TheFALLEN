@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public int amountOfJumps = 1;
 
     [Header("References")]
+    [SerializeField] private AudioClip[] audioClips;
+    private AudioSource audioSource;
     public Transform groundCheck;
     public LayerMask whatIsGround;
 
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();        
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         amountOfJumpsLeft = amountOfJumps;
     }
 
@@ -115,7 +118,9 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
+            audioSource.clip = audioClips[0];
             Jump();
+            audioSource.Play();
         }
 
         if (Input.GetButtonUp("Jump"))
