@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,8 +14,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigidbody2d; //rigid body of the player character
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer; //make sure all platforms are in this layer
+    [SerializeField] private PlayerCharacter _activeCharacter;
     #endregion
 
+    #region GETTERS AND SETTERS
+    public float Horizontal { get { return _horizontal; } }
+    public float MoveSpeed { get { return _moveSpeed; } set { _moveSpeed = value; } }
+    public Rigidbody2D Rb2D { get { return _rigidbody2d; } set { _rigidbody2d = value; } }
+    #endregion
 
     #region UNITY FUNCTIONS
     // Update is called once per frame
@@ -24,7 +31,14 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        //Debug.Log(_rigidbody2d.velocity.y);
+        _activeCharacter = this.GetComponent<Player>().Character;
+
+        if(_activeCharacter == PlayerCharacter.HERO) 
+        {
+            if (this.GetComponent<Hero>().IsDashing) { return; }
+        }
+
+
         Move();
         Flip();
         BaseAtk();
@@ -34,7 +48,17 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-         _rigidbody2d.velocity = new Vector2(_horizontal * _moveSpeed, _rigidbody2d.velocity.y);
+        if (_activeCharacter == PlayerCharacter.HERO)
+        {
+            if (this.GetComponent<Hero>().IsDashing) { return; }
+        }
+
+        if (this.GetComponent<Player>().CanMove)
+        {
+            _rigidbody2d.velocity = new Vector2(_horizontal * _moveSpeed, _rigidbody2d.velocity.y);
+        }
+        else
+            _rigidbody2d.velocity = Vector2.zero;
     }
     #endregion
 
@@ -50,7 +74,7 @@ public class PlayerController : MonoBehaviour
         {
             this.GetComponent<Player>().IsMoving = false;
         }
-
+        
     }
 
     private void Flip()
@@ -69,7 +93,15 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             //call basic attack function here
+            this.GetComponent<Player>().IsAttacking = true;
+            this.GetComponent<Player>().CanMove = false;
             Debug.Log("Attack!");
+        }
+        if (Input.GetKeyUp(KeyCode.J))
+        {
+            //call basic attack function here
+            this.GetComponent<Player>().IsAttacking = false;
+            this.GetComponent<Player>().CanMove = true;
         }
     }
 

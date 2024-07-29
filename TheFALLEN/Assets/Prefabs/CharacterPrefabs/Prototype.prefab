@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1102661111538478078}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2, y: -3.1, z: 0}
+  m_LocalPosition: {x: -1.2, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 8824178579629522456}
   - component: {fileID: 7237026987513103576}
   - component: {fileID: 2319670017987102453}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Prototype
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -111,13 +111,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: fe2a8e4bf25c6944598dc3b97177ac9d, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 34fac531dfe73fd419a10d2d300e286c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.55, y: 6.24}
+  m_Size: {x: 4.83, y: 5.17}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -163,13 +163,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _horizontal: 0
-  _moveSpeed: 8
+  _moveSpeed: 15
   _isFacingRight: 1
   _rigidbody2d: {fileID: 5124438233482021942}
   groundCheck: {fileID: 9086393350794378125}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  _activeCharacter: 0
 --- !u!114 &7550358535879756753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpTime: 0.4
-  _jumpPower: 18
+  _jumpPower: 25
   _jumpMultiplier: 2
   _fallMultiplier: 5
   _groundCheck: {fileID: 9086393350794378125}
@@ -221,6 +222,14 @@ MonoBehaviour:
   _attackPoints: 0
   _defensePoints: 0
   _attackSpeed: 0
+  _supportSkillCooldown: 2
+  _canUseSupportSkill: 1
+  _lightSkillCooldown: 0
+  _canUseLightSkill: 1
+  _heavySkillCooldown: 0
+  _canUseHeavySkill: 0
+  _ultiSkillCooldown: 0
+  _canUseUltiSkill: 1
   _isDead: 0
   _isJumping: 0
   _isFalling: 0
@@ -228,7 +237,11 @@ MonoBehaviour:
   _isAttacking: 0
   _isUsingSkill: 0
   _isMoving: 0
+  _canMove: 0
   character: 0
+  _dashingSpeed: 40
+  dashingCooldown: 1
+  dashingDuration: 0.2
 --- !u!61 &7237026987513103576
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -261,18 +274,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0694783, y: -0.37185347}
+  m_Offset: {x: -1.2154484, y: -0.20177174}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.55, y: 6.24}
-    newSize: {x: 5.55, y: 6.24}
+    oldSize: {x: 3.73, y: 5.95}
+    newSize: {x: 4.83, y: 5.17}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7777076, y: 5.4645777}
+  m_Size: {x: 1.4857674, y: 5.4513874}
   m_EdgeRadius: 0
 --- !u!95 &2319670017987102453
 Animator:

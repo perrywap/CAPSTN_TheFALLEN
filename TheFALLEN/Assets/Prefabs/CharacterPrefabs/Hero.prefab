@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpTime: 0.4
-  _jumpPower: 18
+  _jumpPower: 25
   _jumpMultiplier: 2
   _fallMultiplier: 5
   _groundCheck: {fileID: 9086393350794378125}
@@ -357,6 +357,7 @@ MonoBehaviour:
   _isGrounded: 0
   _isAttacking: 0
   _isUsingSkill: 0
+  _isMoving: 0
   character: 0
 --- !u!1 &4921197649215227951
 GameObject:

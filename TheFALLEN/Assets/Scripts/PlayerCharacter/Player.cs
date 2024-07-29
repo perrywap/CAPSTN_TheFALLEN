@@ -15,4 +15,5 @@ public class Player : UnitBase
 {
     [Header("Character")]
     [SerializeField] private PlayerCharacter character;
+    public PlayerCharacter Character { get { return character; } }
 }
