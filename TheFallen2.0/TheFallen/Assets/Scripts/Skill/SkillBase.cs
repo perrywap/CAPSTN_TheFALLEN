@@ -11,8 +11,12 @@ public class SkillBase : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!canUseSkill)
-            return;
+        
+    }
+
+    private void CheckCooldown()
+    {
+       
     }
 
     public virtual void ActivateSkill()

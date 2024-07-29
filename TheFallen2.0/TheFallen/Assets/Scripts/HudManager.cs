@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HudManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class HudManager : MonoBehaviour
 
     [Header("Skills")]
     [SerializeField] private Image[] skillImage;
+    [SerializeField] private TextMeshProUGUI[] coolDownText;
     [SerializeField] private Sprite defaultSkillSprite;
 
     public static HudManager Instance { get; private set; }
@@ -89,6 +91,14 @@ public class HudManager : MonoBehaviour
                 break;
             }    
             skillImage[i].sprite = player.GetComponent<CharacterSkillController>().skills[i].skillImage;
+        }
+    }
+
+    public void UpdateSkillCooldowns()
+    {
+        for (int i = 0; i < skillImage.Length; i++)
+        {
+            //coolDownText[0] = player.GetComponent<CharacterSkillController>().skills[i].skillCooldown;
         }
     }
 }
