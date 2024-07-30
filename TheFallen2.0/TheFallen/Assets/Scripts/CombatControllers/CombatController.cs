@@ -18,16 +18,22 @@ public class CombatController : MonoBehaviour
     public int attackCount = 0;
 
     public Animator anim;
+    public AudioSource attackAudioSource;
+    public AudioClip[] attackClip;
 
     private void Start()
     {
         isFirstAttack = true;
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
+        attackAudioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
+        if (this.GetComponent<Player>().isUsingSkill)
+            return;
+
         CheckCombatInput();
         CheckAttacks();
     }
@@ -117,7 +123,7 @@ public class CombatController : MonoBehaviour
 
         foreach (Collider2D collider in detectedObjects)
         {
-            collider.transform.parent.SendMessage("Damage", attackDamage);
+            collider.transform.SendMessage("Damage", attackDamage);
         }
     }
 

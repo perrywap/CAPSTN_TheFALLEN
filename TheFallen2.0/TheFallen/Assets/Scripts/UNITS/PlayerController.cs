@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     #region VARIABLES
     private float movementInputDirection;
-
     private Rigidbody2D rb;
     private Animator anim;
     private int amountOfJumpsLeft;    
@@ -22,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public int amountOfJumps = 1;
 
     [Header("References")]
+    [SerializeField] private AudioClip[] audioClips;
+    private AudioSource audioSource;
     public Transform groundCheck;
     public LayerMask whatIsGround;
 
@@ -33,14 +34,16 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();        
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         amountOfJumpsLeft = amountOfJumps;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (this.GetComponent<Player>().character == Character.HERO && this.GetComponent<Hero>().isDashing)
+        if (this.GetComponent<Player>().isUsingSkill)
             return;
+            
 
         CheckInput();
         CheckMovementDirection();
@@ -51,15 +54,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (this.GetComponent<Player>().character == Character.HERO && this.GetComponent<Hero>().isDashing)
-        {
-            return;
-            //if (this.GetComponent<Hero>().isDashing) { return; }
-        }
-
-        
-        ApplyMovement();
         CheckSurroundings();
+        if (this.GetComponent<Player>().isUsingSkill)
+            return;
+
+        ApplyMovement();        
     }
     #endregion
 
@@ -119,35 +118,14 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
+            audioSource.clip = audioClips[0];
             Jump();
+            audioSource.Play();
         }
 
         if (Input.GetButtonUp("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
-        }
-
-        if(Input.GetKeyDown(KeyCode.U))
-        {
-            this.GetComponent<Player>().ActivateSkill1();
-        }
-
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            this.GetComponent<Player>().ActivateSkill2();
-        }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            this.GetComponent<Player>().ActivateSkill3();
-        }
-
-        if (this.GetComponent<Player>().character == Character.HERO) 
-        {
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                this.GetComponent<Hero>().ActivateSkill4();
-            }
         }
     }
 

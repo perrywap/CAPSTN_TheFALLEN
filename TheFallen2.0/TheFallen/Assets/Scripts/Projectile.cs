@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float attack1Radius;
     [SerializeField] private Transform hitBoxPos;
     [SerializeField] private LayerMask WhatIsDamageable;
+    [SerializeField] private AudioClip[] projectileClips;
+    [SerializeField] private AudioSource audioSource;
 
     private void Start()
     {
@@ -33,14 +35,19 @@ public class Projectile : MonoBehaviour
 
         foreach (Collider2D collider in detectedObjects)
         {
-            collider.transform.parent.SendMessage("Damage", damageAmount);
-            Destroy(gameObject);
+            collider.transform.SendMessage("Damage", damageAmount);
         }
     }
 
     private IEnumerator DisposeProjectile()
     {
         yield return new WaitForSecondsRealtime(3f);
+        Destroy(gameObject);
+    }
+
+    private IEnumerator DelayedDisposeProjectile()
+    {
+        yield return new WaitForSecondsRealtime(.5f);
         Destroy(gameObject);
     }
 
