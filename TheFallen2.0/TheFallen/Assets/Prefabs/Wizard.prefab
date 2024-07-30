@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 4148647815343543039}
   - component: {fileID: 4350762783831363253}
   - component: {fileID: 1328078371908891579}
+  - component: {fileID: 6693064491442998313}
   m_Layer: 9
   m_Name: Wizard
   m_TagString: Player
@@ -418,6 +419,8 @@ MonoBehaviour:
   isFirstAttack: 0
   attackCount: 0
   anim: {fileID: 0}
+  attackAudioSource: {fileID: 0}
+  attackClip: []
   projectileGO: {fileID: 2493320438003140104, guid: 7739d8b4a1d63a5428d1076c48dd8cd8, type: 3}
   projectileSpawnArea: {fileID: 7556089330738830601}
   projectileForce: 30
@@ -533,6 +536,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6693064491442998313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670261868946208703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739391cb2eb493e49855b4ed57bfcc8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentPlatform: {fileID: 0}
+  _playerCollider: {fileID: 1113649007709737289}
 --- !u!1 &3917367189256970169
 GameObject:
   m_ObjectHideFlags: 0

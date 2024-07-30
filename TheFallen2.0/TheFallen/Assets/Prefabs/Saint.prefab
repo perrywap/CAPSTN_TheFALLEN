@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 3747727480133592976}
   - component: {fileID: 6284297261222026365}
   - component: {fileID: 4903429731874250888}
+  - component: {fileID: 2900832734913384048}
   m_Layer: 9
   m_Name: Saint
   m_TagString: Player
@@ -332,6 +333,8 @@ MonoBehaviour:
   isFirstAttack: 0
   attackCount: 0
   anim: {fileID: 0}
+  attackAudioSource: {fileID: 0}
+  attackClip: []
   projectileGO: {fileID: 2493320438003140104, guid: 7739d8b4a1d63a5428d1076c48dd8cd8, type: 3}
   projectileSpawnArea: {fileID: 1920109017544349573}
   projectileForce: 30
@@ -479,6 +482,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2900832734913384048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670261868946208703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739391cb2eb493e49855b4ed57bfcc8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentPlatform: {fileID: 0}
+  _playerCollider: {fileID: 1113649007709737289}
 --- !u!1 &3917367189256970169
 GameObject:
   m_ObjectHideFlags: 0

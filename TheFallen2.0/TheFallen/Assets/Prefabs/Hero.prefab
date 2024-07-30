@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: -1606774096676596714}
   - component: {fileID: 2521817929240339983}
   - component: {fileID: 3251960556812201252}
+  - component: {fileID: 4474360700285491260}
   m_Layer: 9
   m_Name: Hero
   m_TagString: Player
@@ -269,6 +270,8 @@ MonoBehaviour:
   isFirstAttack: 0
   attackCount: 0
   anim: {fileID: 0}
+  attackAudioSource: {fileID: 0}
+  attackClip: []
 --- !u!114 &3239775133584771835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,6 +530,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4474360700285491260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2362907371957428471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739391cb2eb493e49855b4ed57bfcc8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentPlatform: {fileID: 0}
+  _playerCollider: {fileID: 2943884350277793869}
 --- !u!1 &5377624606233652768
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,6 +888,10 @@ PrefabInstance:
     - target: {fileID: 624038581469353997, guid: daf005c329b64ce44a3cc2d69e7088fd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 930955536047096799, guid: daf005c329b64ce44a3cc2d69e7088fd, type: 3}
+      propertyPath: isBlocking
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
