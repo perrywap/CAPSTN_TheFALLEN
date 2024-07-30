@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillImage: {fileID: 21300000, guid: a1181e7b502ecb74ca2bd25beccdd89a, type: 3}
-  skillCooldown: 5
+  skillCooldown: 15
   canUseSkill: 1
   launchPoint: {fileID: 8340009590389170709}
   spearPrefab: {fileID: 7788722315141079150, guid: c3cf7cc8adda3be48a4403129b5468d9, type: 3}
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillImage: {fileID: 21300000, guid: 9c73f707b2b73534685f36f6505ca634, type: 3}
-  skillCooldown: 0
+  skillCooldown: 5
   canUseSkill: 1
   fallLocationGO: {fileID: 1681921835025871980, guid: 6c40d0bd969f0974f80426d82de48456, type: 3}
   fallImpactPrefab: {fileID: 1159665283412615709, guid: 191a6bf47f06145439d021b592fb6224, type: 3}
@@ -563,6 +563,7 @@ MonoBehaviour:
   - {fileID: 5864820579306929396}
   - {fileID: 5829807149251056405}
   - {fileID: 7761246045350656420}
+  - {fileID: 0}
 --- !u!82 &3159112770005317698
 AudioSource:
   m_ObjectHideFlags: 0
@@ -781,8 +782,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillImage: {fileID: 21300000, guid: 89ecc9b8a8c9af243b5033ac96c3e0ac, type: 3}
-  skillCooldown: 0
-  canUseSkill: 0
+  skillCooldown: 7
+  canUseSkill: 1
   damage: 0
   ravageSpearDuration: 2
   skillSound: {fileID: 8300000, guid: 1fbe5b6ee62c61043beb42f8d8ad02e3, type: 3}

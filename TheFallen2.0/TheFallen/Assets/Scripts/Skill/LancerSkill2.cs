@@ -22,9 +22,12 @@ public class LancerSkill2 : SkillBase
 
     public override void ActivateSkill()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        PlaySkillSound();
-        StartCoroutine(RavageSpear());
+        if (canUseSkill && GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isGrounded)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            PlaySkillSound();
+            StartCoroutine(RavageSpear());
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,6 +52,7 @@ public class LancerSkill2 : SkillBase
 
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = false;
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("isRavagingSpear", false);
+        StartCoroutine(SkillOnCoolDown());
     }
 
     private void PlaySkillSound()

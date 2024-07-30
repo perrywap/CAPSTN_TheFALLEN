@@ -35,21 +35,24 @@ public class HeroSkill4 : SkillBase
 
     public override void ActivateSkill()
     {
-        StartCoroutine(ModifyRBVelocity());
-
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("isUsingUlt");
-
-        swordGO = Instantiate(ultSwordPrefab, spawnPosition.position, Quaternion.identity);
-        UltSword ultSword = swordGO.GetComponent<UltSword>();
-
-        // SOUND LOGIC
-        if (audioSource != null && skillSound != null)
+        if (canUseSkill)
         {
-            audioSource.PlayOneShot(skillSound);
-        }
+            StartCoroutine(ModifyRBVelocity());
 
-        swordGO.GetComponent<Rigidbody2D>().velocity = -spawnPosition.up * 200f;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("isUsingUlt");
+
+            swordGO = Instantiate(ultSwordPrefab, spawnPosition.position, Quaternion.identity);
+            UltSword ultSword = swordGO.GetComponent<UltSword>();
+
+            // SOUND LOGIC
+            if (audioSource != null && skillSound != null)
+            {
+                audioSource.PlayOneShot(skillSound);
+            }
+
+            swordGO.GetComponent<Rigidbody2D>().velocity = -spawnPosition.up * 200f;
+        }
     }
 
     private IEnumerator ModifyRBVelocity()
@@ -57,5 +60,6 @@ public class HeroSkill4 : SkillBase
         GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         yield return new WaitForSeconds(.5f);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = false;
+        StartCoroutine(SkillOnCoolDown());
     }
 }

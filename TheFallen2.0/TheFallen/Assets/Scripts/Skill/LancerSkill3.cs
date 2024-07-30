@@ -35,12 +35,15 @@ public class LancerSkill3 : SkillBase
 
     public override void ActivateSkill()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("isThrowingSpear");
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
+        if (canUseSkill && GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isGrounded)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("isThrowingSpear");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
 
-        PlaySkillSound(); // Play the skill sound
-        StartCoroutine(ModifyRBVelocity());
+            PlaySkillSound(); // Play the skill sound
+            StartCoroutine(ModifyRBVelocity());
+        }       
     }
 
     public void ThrowSpear()
@@ -56,6 +59,7 @@ public class LancerSkill3 : SkillBase
         GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         yield return new WaitForSeconds(.5f);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = false;
+        StartCoroutine(SkillOnCoolDown());
     }
 
     private void PlaySkillSound()
