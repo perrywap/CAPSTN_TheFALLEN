@@ -24,10 +24,7 @@ public class FollowCam : MonoBehaviour
 
         Vector3 targetPosition = player.transform.position + positionOffset;
 
-        if(player.GetComponent<Player>().isUsingSkill)
-            targetPosition = new Vector3(Mathf.Clamp(targetPosition.x, xLimit.x, xLimit.y), targetPosition.y, -10);
-        else
-            targetPosition = new Vector3(Mathf.Clamp(targetPosition.x, xLimit.x, xLimit.y), Mathf.Clamp(targetPosition.y, yLimit.x, yLimit.y), -10);
+        targetPosition = new Vector3(Mathf.Clamp(targetPosition.x, xLimit.x, xLimit.y), Mathf.Clamp(targetPosition.y, yLimit.x, yLimit.y), -10);
 
         followCam.transform.position = Vector3.SmoothDamp(followCam.transform.position, targetPosition, ref velocity, smoothTime);
     }
