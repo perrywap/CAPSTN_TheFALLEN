@@ -11,7 +11,16 @@ public class ArcherSkill3 : SkillBase
     [SerializeField] private float delayTime;
     [SerializeField] private float repeatRate;
 
+    [Header("Sound Settings")]
+    [SerializeField] private AudioClip shootSound;
+    private AudioSource audioSource;
+
     public bool shootArrows;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void FixedUpdate()
     {
@@ -25,7 +34,8 @@ public class ArcherSkill3 : SkillBase
     public override void ActivateSkill()
     {
         StartCoroutine(ModifyRBVelocity());
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("shootArrows");  
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("shootArrows");
+        PlayShootSound();
     }
 
     private void Shoot()
@@ -34,6 +44,19 @@ public class ArcherSkill3 : SkillBase
         Projectile projectile = arrow.GetComponent<Projectile>();
 
         arrow.GetComponent<Rigidbody2D>().velocity = -spawnArea.up * projectileForce;
+    }
+
+    private void PlayShootSound()
+    {
+        if (audioSource && shootSound)
+        {
+            Debug.Log("Playing shoot sound");
+            audioSource.PlayOneShot(shootSound);
+        }
+        else
+        {
+            Debug.LogWarning("AudioSource or shootSound is missing");
+        }
     }
 
     private IEnumerator RainArrow()

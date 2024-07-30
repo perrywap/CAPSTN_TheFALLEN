@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource audioSource;
     public Transform groundCheck;
     public LayerMask whatIsGround;
+    [SerializeField] private AudioClip runningSound; 
 
     #endregion
 
@@ -84,7 +85,7 @@ public class PlayerController : MonoBehaviour
             this.GetComponent<Player>().canJump = true;
         }
     }
-    
+
     private void CheckMovementDirection()
     {
         if (this.GetComponent<Player>().isFacingRight && movementInputDirection < 0)
@@ -96,15 +97,27 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if(Mathf.Abs(rb.velocity.x) >= 0.01f)
+        if (Mathf.Abs(rb.velocity.x) >= 0.01f)
         {
             this.GetComponent<Player>().isWalking = true;
+
+            if (this.GetComponent<Player>().isGrounded && !audioSource.isPlaying)
+            {
+                audioSource.clip = runningSound;
+                audioSource.Play();
+            }
         }
         else
         {
-            this.GetComponent<Player>().isWalking = false;  
+            this.GetComponent<Player>().isWalking = false;
+
+            if (audioSource.clip == runningSound)
+            {
+                audioSource.Stop();
+            }
         }
     }
+
     private void UpdateAnimations()
     {
         anim.SetBool("isWalking", this.GetComponent<Player>().isWalking);

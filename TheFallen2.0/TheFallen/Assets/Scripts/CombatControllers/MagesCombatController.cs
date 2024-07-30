@@ -8,7 +8,6 @@ public class MagesCombatController : CombatController
     [SerializeField] private Transform projectileSpawnArea;
     [SerializeField] private float projectileForce;
 
-
     public override void CheckCombatInput()
     {
         if (this.GetComponent<Player>().isAttacking)
@@ -16,7 +15,10 @@ public class MagesCombatController : CombatController
             this.GetComponent<Player>().canMove = false;
             return;
         }
-        else { this.GetComponent<Player>().canMove = true; }
+        else
+        {
+            this.GetComponent<Player>().canMove = true;
+        }
 
         if (Input.GetKeyDown(KeyCode.J))
         {

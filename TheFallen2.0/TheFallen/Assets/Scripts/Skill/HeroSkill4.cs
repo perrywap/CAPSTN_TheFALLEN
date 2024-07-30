@@ -7,8 +7,20 @@ public class HeroSkill4 : SkillBase
     [SerializeField] private GameObject ultSwordPrefab;
     [SerializeField] private Transform spawnPosition;
     [SerializeField] private Transform landingPosition;
+    [SerializeField] private AudioClip skillSound; 
+    private AudioSource audioSource; 
 
     private GameObject swordGO;
+
+    private void Start()
+    {
+       
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
     private void Update()
     {
@@ -28,12 +40,16 @@ public class HeroSkill4 : SkillBase
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("isUsingUlt");
 
-
         swordGO = Instantiate(ultSwordPrefab, spawnPosition.position, Quaternion.identity);
         UltSword ultSword = swordGO.GetComponent<UltSword>();
 
         // SOUND LOGIC
-        swordGO.GetComponent<Rigidbody2D>().velocity = -spawnPosition.up * 200f;      
+        if (audioSource != null && skillSound != null)
+        {
+            audioSource.PlayOneShot(skillSound);
+        }
+
+        swordGO.GetComponent<Rigidbody2D>().velocity = -spawnPosition.up * 200f;
     }
 
     private IEnumerator ModifyRBVelocity()

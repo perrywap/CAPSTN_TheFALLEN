@@ -10,15 +10,25 @@ public class ArcherCombatController : CombatController
     [SerializeField] private bool startedDrawing;
     public float drawTimer;
 
+    [Header("Sound Settings")]
+    [SerializeField] private AudioClip bowDrawSound;
+    [SerializeField] private AudioClip bowReleaseSound;
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void OnBowDraw()
     {
         this.GetComponent<Player>().canMove = false;
         this.GetComponent<Player>().isAttacking = true;
 
-
         if (combatEnabled)
         {
             anim.SetBool("isDrawing", true);
+            PlayBowDrawSound();
         }
         StartCoroutine(DrawTime());
     }
@@ -31,11 +41,13 @@ public class ArcherCombatController : CombatController
         gotInput = true;
         this.GetComponent<Player>().isAttacking = false;
         anim.SetBool("isDrawing", false);
+
+        PlayBowReleaseSound();
     }
 
     public override void CheckCombatInput()
     {
-        if(Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             OnBowDraw();
         }
@@ -72,8 +84,8 @@ public class ArcherCombatController : CombatController
 
         GameObject newArrow = Instantiate(projectileGO, projectileSpawnArea.position, projectileSpawnArea.rotation);
         Projectile projectile = newArrow.GetComponent<Projectile>();
-        
-        if(drawTimer < .15f) 
+
+        if (drawTimer < .15f)
             newArrow.GetComponent<Rigidbody2D>().velocity = projectileSpawnArea.right * 10f;
         else
             newArrow.GetComponent<Rigidbody2D>().velocity = projectileSpawnArea.right * projectileForce;
@@ -86,6 +98,22 @@ public class ArcherCombatController : CombatController
             if (anim.GetBool("isDrawing") == false)
                 break;
             yield return new WaitForSeconds(Time.deltaTime);
+        }
+    }
+
+    private void PlayBowDrawSound()
+    {
+        if (audioSource != null && bowDrawSound != null)
+        {
+            audioSource.PlayOneShot(bowDrawSound);
+        }
+    }
+
+    private void PlayBowReleaseSound()
+    {
+        if (audioSource != null && bowReleaseSound != null)
+        {
+            audioSource.PlayOneShot(bowReleaseSound);
         }
     }
 }

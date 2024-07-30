@@ -6,6 +6,17 @@ using UnityEngine;
 public class WizardSkill2 : SkillBase
 {
     [SerializeField] private ParticleSystem freezeParticle;
+    [SerializeField] private AudioClip skillSoundClip; 
+    private AudioSource skillSoundSource; 
+
+    private void Start()
+    {
+        
+        skillSoundSource = gameObject.AddComponent<AudioSource>();
+        skillSoundSource.clip = skillSoundClip;
+        skillSoundSource.spatialBlend = 0; 
+        skillSoundSource.dopplerLevel = 0; 
+    }
 
     public override void ActivateSkill()
     {
@@ -13,6 +24,12 @@ public class WizardSkill2 : SkillBase
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
 
         freezeParticle.Play();
+
+        
+        if (skillSoundSource != null && skillSoundClip != null)
+        {
+            skillSoundSource.Play();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
