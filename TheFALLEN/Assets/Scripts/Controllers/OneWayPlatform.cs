@@ -9,10 +9,19 @@ public class OneWayPlatform : MonoBehaviour
     [SerializeField] private BoxCollider2D _playerCollider;
     #endregion
 
+   //OneWayPlatform movementOnPlatformEnabled;
+
+    private void Start()
+    {
+        //movementOnPlatformEnabled = GetComponent<OneWayPlatform>();
+    }
+
     #region UNITY FUNCTIONS
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        //movementOnPlatformEnabled.enabled = false;
+
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             if(_currentPlatform != null)
             {

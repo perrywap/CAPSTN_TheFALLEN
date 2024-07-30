@@ -9,10 +9,19 @@ public class DialogueTrigger : MonoBehaviour
 
     public GameObject dialogueOpener;
 
+    [SerializeField] 
+    public DialogueManager dialogueManager;
+    //public PlayerController playerController;
+
     public void StartDialogue()
     {
-        dialogueOpener.SetActive(true);
-        FindObjectOfType<DialogueManager>().OpenDialogue(messages, actors);
+        if(dialogueManager.triggerChecker == dialogueManager.checkpointValue)
+        {
+            dialogueOpener.SetActive(true);
+            FindObjectOfType<DialogueManager>().OpenDialogue(messages, actors);
+            Debug.Log("debugging" + dialogueManager.checkpointValue);
+        }
+
     }
     [System.Serializable]
     public class Message

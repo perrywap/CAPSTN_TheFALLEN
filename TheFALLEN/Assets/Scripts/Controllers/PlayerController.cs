@@ -23,8 +23,13 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D Rb2D { get { return _rigidbody2d; } set { _rigidbody2d = value; } }
     #endregion
 
-    //PlayerController movementEnabled;
+    public int CPValue = 0;  //checks to see which checkpoint I can access
 
+    [SerializeField]
+    public DialogueManager DM;
+
+    //PlayerController movementEnabled;
+    
     #region UNITY FUNCTIONS
     // Update is called once per frame
     private void Start()
@@ -37,12 +42,21 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        Debug.Log("checkpoint value: " + CPValue);
+
+ 
+
         _activeCharacter = this.GetComponent<Player>().Character;
 
         if(_activeCharacter == PlayerCharacter.HERO) 
         {
             if (this.GetComponent<Hero>().IsDashing) { return; }
         }
+
+        //if(CPValue == 1)
+        //{
+        //    //movementEnabled.enabled = false;
+        //}
 
         //movementEnabled.enabled = false;
         //Debug.Log(movementEnabled);
@@ -52,10 +66,25 @@ public class PlayerController : MonoBehaviour
         BaseAtk();
         UseSkill();
         CharacterSwap();
+
+        if (DM.triggerChecker <= 1)
+        {
+            //CPValue++;
+
+        }
+
     }
 
 
+    //public void OnCollisionEnter2D(Collision2D cln)
+    //{
 
+    //    if (cln.gameObject.CompareTag("cutsceneTrigger") == true)
+    //    {
+    //        CPValue = 1;
+    //    }
+
+    //}
 
 
     private void FixedUpdate()
@@ -74,15 +103,7 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
 
-    //    if (collision.gameObject.CompareTag("cutsceneTrigger") == true)
-    //    {
-    //        movementEnabled.enabled = false;
-    //    }
-
-    //}
 
     private void Move()
     {
