@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CombatController : MonoBehaviour
 {
     public bool combatEnabled;
     [SerializeField] private float inputTimer, attack1Radius;
-    public float attackDamage; 
+    public float attackDamage;
     [SerializeField] private Transform attack1HitBoxPos;
     [SerializeField] private LayerMask WhatIsDamageable;
+    [SerializeField] private AudioClip attackSoundClip;
+    private AudioSource attackSoundSource;
 
     public bool gotInput;
     public bool isFirstAttack;
@@ -18,15 +19,18 @@ public class CombatController : MonoBehaviour
     public int attackCount = 0;
 
     public Animator anim;
-    public AudioSource attackAudioSource;
-    public AudioClip[] attackClip;
 
-    private void Start()
+    protected virtual void Start()
     {
         isFirstAttack = true;
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
-        attackAudioSource = GetComponent<AudioSource>();
+
+        // Create a new AudioSource for attack sounds
+        attackSoundSource = gameObject.AddComponent<AudioSource>();
+        attackSoundSource.clip = attackSoundClip;
+        attackSoundSource.spatialBlend = 0; // 2D sound
+        attackSoundSource.dopplerLevel = 0; // No pitch change with movement
     }
 
     private void Update()
@@ -40,17 +44,15 @@ public class CombatController : MonoBehaviour
 
     public virtual void CheckCombatInput()
     {
-        if(this.GetComponent<Player>().isAttacking)
+        if (this.GetComponent<Player>().isAttacking)
         {
             this.GetComponent<Player>().canMove = false;
             return;
         }
         else
         {
-            this .GetComponent<Player>().canMove = true;
+            this.GetComponent<Player>().canMove = true;
         }
-
-            
 
         if (Input.GetKeyDown(KeyCode.J))
         {
@@ -60,6 +62,12 @@ public class CombatController : MonoBehaviour
                 lastInputTime = Time.time;
                 attackCount++;
                 anim.SetInteger("attackCount", attackCount);
+
+                // Play the attack sound
+                if (attackSoundSource != null)
+                {
+                    attackSoundSource.Play();
+                }
             }
         }
     }
@@ -78,40 +86,31 @@ public class CombatController : MonoBehaviour
                 switch (attackCount)
                 {
                     case 1:
-                        {
-                            anim.SetBool("attack1", true);
-                            isFirstAttack = false;
-                            break;
-                        }
+                        anim.SetBool("attack1", true);
+                        isFirstAttack = false;
+                        break;
                     case 2:
-                        {
-                            anim.SetBool("attack1", false);
-                            anim.SetBool("attack2", true);
-                            isFirstAttack = false;
-                            break;
-                        }
+                        anim.SetBool("attack1", false);
+                        anim.SetBool("attack2", true);
+                        isFirstAttack = false;
+                        break;
                     case 3:
-                        {
-                            anim.SetBool("attack2", false);
-                            anim.SetBool("attack3", true);
-                            isFirstAttack = false;
-                            break;
-                        }
+                        anim.SetBool("attack2", false);
+                        anim.SetBool("attack3", true);
+                        isFirstAttack = false;
+                        break;
                     case 4:
-                        {
-                            anim.SetBool("attack3", false);
-                            anim.SetBool("attack4", true);
-                            isFirstAttack = false;
-
-                            attackCount = 0;
-                            isFirstAttack = true;
-                            break;
-                        }
+                        anim.SetBool("attack3", false);
+                        anim.SetBool("attack4", true);
+                        isFirstAttack = false;
+                        attackCount = 0;
+                        isFirstAttack = true;
+                        break;
                 }
             }
         }
 
-        if (Time.time >= lastInputTime + inputTimer) 
+        if (Time.time >= lastInputTime + inputTimer)
         {
             gotInput = false;
         }

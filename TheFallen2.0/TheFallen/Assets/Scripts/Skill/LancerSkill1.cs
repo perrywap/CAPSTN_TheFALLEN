@@ -17,9 +17,19 @@ public class LancerSkill1 : SkillBase
     [SerializeField] private float dropSpeed;
     [SerializeField] private float airMoveSpeed;
 
+    [Header("Sound Settings")]
+    [SerializeField] private AudioClip skillActivationSound;
+    [SerializeField] private AudioClip landingImpactSound;
+    private AudioSource audioSource;
+
     private float movementInputDirection;
     public bool isLanding;
     public bool launchEnded;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -28,6 +38,7 @@ public class LancerSkill1 : SkillBase
         if (GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isGrounded && isLanding)
         {
             Instantiate(fallImpactPrefab, this.transform.position, Quaternion.identity);
+            PlayLandingImpactSound();
             isLanding = false;
         }
     }
@@ -43,6 +54,7 @@ public class LancerSkill1 : SkillBase
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
 
         SpawnFallLocationGO();
+        PlaySkillActivationSound();
 
         StartCoroutine(launching());
     }
@@ -123,5 +135,21 @@ public class LancerSkill1 : SkillBase
         GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("highJumpActive", false);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = false;
+    }
+
+    private void PlaySkillActivationSound()
+    {
+        if (audioSource != null && skillActivationSound != null)
+        {
+            audioSource.PlayOneShot(skillActivationSound);
+        }
+    }
+
+    private void PlayLandingImpactSound()
+    {
+        if (audioSource != null && landingImpactSound != null)
+        {
+            audioSource.PlayOneShot(landingImpactSound);
+        }
     }
 }

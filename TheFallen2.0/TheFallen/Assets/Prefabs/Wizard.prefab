@@ -50,6 +50,7 @@ MonoBehaviour:
   skillCooldown: 0
   canUseSkill: 0
   freezeParticle: {fileID: 2044778076951382908, guid: 7d4b2a6f932f69c4da8c0022ed1b52c4, type: 3}
+  skillSoundClip: {fileID: 8300000, guid: 4cb1c269639677246be16b61b93235f5, type: 3}
 --- !u!61 &5437705333071937158
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -357,6 +358,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  runningSound: {fileID: 8300000, guid: 2024b720c6394d14d98a90ecade335ef, type: 3}
 --- !u!114 &8341635988880077460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,12 +417,11 @@ MonoBehaviour:
   WhatIsDamageable:
     serializedVersion: 2
     m_Bits: 128
+  attackSoundClip: {fileID: 8300000, guid: 4470e4a3dbbd549448bc82347959afb2, type: 3}
   gotInput: 0
   isFirstAttack: 0
   attackCount: 0
   anim: {fileID: 0}
-  attackAudioSource: {fileID: 0}
-  attackClip: []
   projectileGO: {fileID: 2493320438003140104, guid: 7739d8b4a1d63a5428d1076c48dd8cd8, type: 3}
   projectileSpawnArea: {fileID: 7556089330738830601}
   projectileForce: 30
@@ -450,8 +451,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 746ed2553aeb05f49bc98b3021b28f15, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -726,6 +727,7 @@ MonoBehaviour:
   canUseSkill: 1
   isFloating: 0
   floatMoveSpeed: 20
+  skillSoundClip: {fileID: 8300000, guid: 118cdbb11f67a8a43be53de159f9eea1, type: 3}
 --- !u!1001 &4120285051915880765
 PrefabInstance:
   m_ObjectHideFlags: 0

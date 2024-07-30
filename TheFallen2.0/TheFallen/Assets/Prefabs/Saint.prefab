@@ -309,6 +309,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  runningSound: {fileID: 8300000, guid: 2024b720c6394d14d98a90ecade335ef, type: 3}
 --- !u!114 &8111698692319205030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,12 +330,11 @@ MonoBehaviour:
   WhatIsDamageable:
     serializedVersion: 2
     m_Bits: 128
+  attackSound: {fileID: 4903429731874250888}
   gotInput: 0
   isFirstAttack: 0
   attackCount: 0
   anim: {fileID: 0}
-  attackAudioSource: {fileID: 0}
-  attackClip: []
   projectileGO: {fileID: 2493320438003140104, guid: 7739d8b4a1d63a5428d1076c48dd8cd8, type: 3}
   projectileSpawnArea: {fileID: 1920109017544349573}
   projectileForce: 30
@@ -396,8 +396,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 746ed2553aeb05f49bc98b3021b28f15, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
