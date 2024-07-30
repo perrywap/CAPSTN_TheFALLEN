@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1369921139983382979}
   - component: {fileID: 5134228264463946414}
   - component: {fileID: 9161041951962021592}
-  m_Layer: 0
+  - component: {fileID: 7046079605719189946}
+  m_Layer: 6
   m_Name: PlatformVine
-  m_TagString: Untagged
+  m_TagString: OneWayPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +117,7 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.055511475, y: 0.03663671}
   m_SpriteTilingProperty:
@@ -131,6 +132,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.771431, y: 1.9525554}
   m_EdgeRadius: 0
+--- !u!251 &7046079605719189946
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5695357072632603602}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &8780083267529092225
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9189159603593885157}
   - component: {fileID: 1550574105285005563}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
