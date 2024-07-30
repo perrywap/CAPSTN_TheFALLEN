@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1369921139983382979}
   - component: {fileID: 5134228264463946414}
   - component: {fileID: 9161041951962021592}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlatformVine
-  m_TagString: Untagged
+  m_TagString: OneWayPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.055511475, y: 0.03663671}
+  m_Offset: {x: -0.055511475, y: 0.2878263}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -129,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.771431, y: 1.9525554}
+  m_Size: {x: 8.771431, y: 0.54589367}
   m_EdgeRadius: 0
 --- !u!1 &8780083267529092225
 GameObject:
@@ -141,7 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9189159603593885157}
   - component: {fileID: 1550574105285005563}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
