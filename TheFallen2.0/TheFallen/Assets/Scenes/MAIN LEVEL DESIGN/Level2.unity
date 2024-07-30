@@ -11399,9 +11399,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 4282281983408633867, guid: b0d66999070b0444ba3f7057fbe1e80a, type: 3}
+      propertyPath: m_Size.x
+      value: 4.3212185
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282281983408633867, guid: b0d66999070b0444ba3f7057fbe1e80a, type: 3}
+      propertyPath: m_Size.y
+      value: 23.020882
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282281983408633867, guid: b0d66999070b0444ba3f7057fbe1e80a, type: 3}
+      propertyPath: m_Offset.x
+      value: -2.4577055
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282281983408633867, guid: b0d66999070b0444ba3f7057fbe1e80a, type: 3}
+      propertyPath: m_Offset.y
+      value: -5.6869335
+      objectReference: {fileID: 0}
     - target: {fileID: 6999742591581205466, guid: b0d66999070b0444ba3f7057fbe1e80a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35.54
+      value: -28.6
       objectReference: {fileID: 0}
     - target: {fileID: 6999742591581205466, guid: b0d66999070b0444ba3f7057fbe1e80a, type: 3}
       propertyPath: m_LocalPosition.y
