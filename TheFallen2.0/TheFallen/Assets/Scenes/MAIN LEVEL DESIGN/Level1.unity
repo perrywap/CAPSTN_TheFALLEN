@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &52148828 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8473948490147188498, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+  m_PrefabInstance: {fileID: 1036756852}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &61370565
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 61370566}
   - component: {fileID: 61370567}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 4 extensions (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 77923431}
   - component: {fileID: 77923432}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 4 extensions (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 86274911}
   - component: {fileID: 86274912}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,6 +386,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &109148068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8674412685922075654, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+  m_PrefabInstance: {fileID: 1036756852}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &115404643
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 115404644}
   - component: {fileID: 115404645}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 4 extensions (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 146092170}
   - component: {fileID: 146092171}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +575,7 @@ GameObject:
   m_Component:
   - component: {fileID: 178411182}
   - component: {fileID: 178411183}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: upper right platform separate (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -637,7 +659,7 @@ GameObject:
   m_Component:
   - component: {fileID: 229693815}
   - component: {fileID: 229693816}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -763,6 +785,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformVine (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780083267529092225, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -825,6 +859,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformVine (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780083267529092225, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -845,7 +891,7 @@ GameObject:
   m_Component:
   - component: {fileID: 315155106}
   - component: {fileID: 315155107}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bottom plat (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +975,7 @@ GameObject:
   m_Component:
   - component: {fileID: 333881408}
   - component: {fileID: 333881409}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bottom plat (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1013,7 +1059,7 @@ GameObject:
   m_Component:
   - component: {fileID: 356399955}
   - component: {fileID: 356399956}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bottom plat (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1139,6 +1185,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformVine (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780083267529092225, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1159,7 +1217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 454866303}
   - component: {fileID: 454866304}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bottom plat (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1327,7 +1385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 505657490}
   - component: {fileID: 505657491}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1401,6 +1459,115 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &510093374
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1962569297174536841, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: switchLocation
+      value: 
+      objectReference: {fileID: 2041362931}
+    - target: {fileID: 3997380539891130704, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4474717126326942282, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: healthImage
+      value: 
+      objectReference: {fileID: 651783820}
+    - target: {fileID: 4474717126326942282, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: activeCharacterImage
+      value: 
+      objectReference: {fileID: 630255336}
+    - target: {fileID: 4474717126326942282, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: iconImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 1438309890}
+    - target: {fileID: 4474717126326942282, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: iconImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 2106273954}
+    - target: {fileID: 4474717126326942282, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: iconImages.Array.data[2]
+      value: 
+      objectReference: {fileID: 1346158040}
+    - target: {fileID: 4474717126326942282, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: iconImages.Array.data[3]
+      value: 
+      objectReference: {fileID: 588847641}
+    - target: {fileID: 4474717126326942282, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: iconImages.Array.data[4]
+      value: 
+      objectReference: {fileID: 616239019}
+    - target: {fileID: 4474717126326942282, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: skillImage.Array.data[0]
+      value: 
+      objectReference: {fileID: 1922090643}
+    - target: {fileID: 4474717126326942282, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: skillImage.Array.data[1]
+      value: 
+      objectReference: {fileID: 109148068}
+    - target: {fileID: 4474717126326942282, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: skillImage.Array.data[2]
+      value: 
+      objectReference: {fileID: 52148828}
+    - target: {fileID: 4474717126326942282, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: skillImage.Array.data[3]
+      value: 
+      objectReference: {fileID: 1199180111}
+    - target: {fileID: 5928229326440575847, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.199999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928229326440575847, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.37801498
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928229326440575847, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928229326440575847, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928229326440575847, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928229326440575847, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928229326440575847, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928229326440575847, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928229326440575847, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928229326440575847, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637929222459623588, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: followCam
+      value: 
+      objectReference: {fileID: 1539388630}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
 --- !u!1 &530231874
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,7 +1579,7 @@ GameObject:
   - component: {fileID: 530231876}
   - component: {fileID: 530231875}
   - component: {fileID: 530231877}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1549,7 +1716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 536070988}
   - component: {fileID: 536070989}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1633,7 +1800,7 @@ GameObject:
   m_Component:
   - component: {fileID: 539423848}
   - component: {fileID: 539423849}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: upper right platform separate (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1717,7 +1884,7 @@ GameObject:
   m_Component:
   - component: {fileID: 541411001}
   - component: {fileID: 541411002}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: upper right platform separate (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1801,7 +1968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 563880810}
   - component: {fileID: 563880811}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1885,7 +2052,7 @@ GameObject:
   m_Component:
   - component: {fileID: 579192165}
   - component: {fileID: 579192166}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bottom plat (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1959,6 +2126,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &588847641 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6058196471844295759, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+  m_PrefabInstance: {fileID: 1036756852}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &611077310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,7 +2148,7 @@ GameObject:
   - component: {fileID: 611077312}
   - component: {fileID: 611077311}
   - component: {fileID: 611077313}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2118,7 +2296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 614488351}
   - component: {fileID: 614488352}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2192,6 +2370,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &616239019 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 361186392523509202, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+  m_PrefabInstance: {fileID: 1036756852}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &625381192
 GameObject:
   m_ObjectHideFlags: 0
@@ -2202,7 +2391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 625381193}
   - component: {fileID: 625381194}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2276,6 +2465,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &630255336 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7021687595544770877, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+  m_PrefabInstance: {fileID: 1036756852}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &644972835
 GameObject:
   m_ObjectHideFlags: 0
@@ -2286,7 +2486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 644972837}
   - component: {fileID: 644972836}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: upper right platform separate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2360,6 +2560,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2092523355}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &651783820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2771496478355384844, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+  m_PrefabInstance: {fileID: 1036756852}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &692279130
 GameObject:
   m_ObjectHideFlags: 0
@@ -2370,7 +2581,7 @@ GameObject:
   m_Component:
   - component: {fileID: 692279131}
   - component: {fileID: 692279132}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2455,7 +2666,7 @@ GameObject:
   - component: {fileID: 732754632}
   - component: {fileID: 732754631}
   - component: {fileID: 732754633}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2590,7 +2801,7 @@ GameObject:
   m_Component:
   - component: {fileID: 748237298}
   - component: {fileID: 748237299}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2674,7 +2885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 750414373}
   - component: {fileID: 750414374}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: upper right platform separate (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2758,7 +2969,7 @@ GameObject:
   m_Component:
   - component: {fileID: 806842378}
   - component: {fileID: 806842379}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: upper right platform separate (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2873,6 +3084,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1436636866}
     m_Modifications:
+    - target: {fileID: 718109511351679577, guid: 4f83f36b131cb2c46a44b627c594a0c6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5041506841415037658, guid: 4f83f36b131cb2c46a44b627c594a0c6, type: 3}
       propertyPath: m_Name
       value: PlatformBranch (1)
@@ -2938,7 +3153,7 @@ GameObject:
   - component: {fileID: 832092459}
   - component: {fileID: 832092458}
   - component: {fileID: 832092460}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3117,6 +3332,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformVine (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780083267529092225, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3142,7 +3369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 839837998}
   - component: {fileID: 839837999}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bottom plat (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3226,7 +3453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 888256921}
   - component: {fileID: 888256922}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3311,7 +3538,7 @@ GameObject:
   - component: {fileID: 893933561}
   - component: {fileID: 893933560}
   - component: {fileID: 893933562}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3448,7 +3675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 908569752}
   - component: {fileID: 908569753}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bottom plat (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3532,7 +3759,7 @@ GameObject:
   m_Component:
   - component: {fileID: 923766959}
   - component: {fileID: 923766960}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: upper right platform separate (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3616,7 +3843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 928681234}
   - component: {fileID: 928681235}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 4 extensions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3700,7 +3927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 954750512}
   - component: {fileID: 954750513}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bottom plat (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3821,7 +4048,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1018128153}
   - component: {fileID: 1018128154}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bottom plat (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3905,7 +4132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1036487411}
   - component: {fileID: 1036487412}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3979,6 +4206,107 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1036756852
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3206739155222978357, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_Name
+      value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206739155222978357, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
 --- !u!1 &1060419707
 GameObject:
   m_ObjectHideFlags: 0
@@ -3989,7 +4317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1060419708}
   - component: {fileID: 1060419709}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4073,7 +4401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1182160008}
   - component: {fileID: 1182160007}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 3 platforms_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4147,6 +4475,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 611077312}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1199180111 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2081088355925839754, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+  m_PrefabInstance: {fileID: 1036756852}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1199342663
 GameObject:
   m_ObjectHideFlags: 0
@@ -4157,7 +4496,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1199342664}
   - component: {fileID: 1199342665}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 3 platforms_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4239,6 +4578,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1436636866}
     m_Modifications:
+    - target: {fileID: 718109511351679577, guid: 4f83f36b131cb2c46a44b627c594a0c6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5041506841415037658, guid: 4f83f36b131cb2c46a44b627c594a0c6, type: 3}
       propertyPath: m_Name
       value: PlatformBranch (3)
@@ -4293,6 +4636,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9036043318295028797, guid: 4f83f36b131cb2c46a44b627c594a0c6, type: 3}
   m_PrefabInstance: {fileID: 1208295419}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1217502441
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2577551952068213678, guid: fade4a8f735d09c4097b62768d15608a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8cbd8901b88df044bda728da64a17dd, type: 2}
+    - target: {fileID: 4579439828016624046, guid: fade4a8f735d09c4097b62768d15608a, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1539388633}
+    - target: {fileID: 7024903472577551158, guid: fade4a8f735d09c4097b62768d15608a, type: 3}
+      propertyPath: m_Name
+      value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714618614490683416, guid: fade4a8f735d09c4097b62768d15608a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714618614490683416, guid: fade4a8f735d09c4097b62768d15608a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714618614490683416, guid: fade4a8f735d09c4097b62768d15608a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714618614490683416, guid: fade4a8f735d09c4097b62768d15608a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714618614490683416, guid: fade4a8f735d09c4097b62768d15608a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714618614490683416, guid: fade4a8f735d09c4097b62768d15608a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714618614490683416, guid: fade4a8f735d09c4097b62768d15608a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714618614490683416, guid: fade4a8f735d09c4097b62768d15608a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714618614490683416, guid: fade4a8f735d09c4097b62768d15608a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714618614490683416, guid: fade4a8f735d09c4097b62768d15608a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fade4a8f735d09c4097b62768d15608a, type: 3}
 --- !u!1 &1221344907
 GameObject:
   m_ObjectHideFlags: 0
@@ -4303,7 +4711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1221344908}
   - component: {fileID: 1221344909}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4387,7 +4795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1245740595}
   - component: {fileID: 1245740596}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bottom plat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4471,7 +4879,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1314963282}
   - component: {fileID: 1314963283}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bottom plat (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4545,6 +4953,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1346158040 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 302904029025118044, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+  m_PrefabInstance: {fileID: 1036756852}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1355551497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4596,6 +5015,18 @@ PrefabInstance:
     - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
       propertyPath: m_Name
       value: PlatformVine (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780083267529092225, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4659,6 +5090,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformVine (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780083267529092225, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4721,6 +5164,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformVine (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780083267529092225, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4741,7 +5196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1413882259}
   - component: {fileID: 1413882260}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 3 platforms_0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4825,7 +5280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1414986001}
   - component: {fileID: 1414986002}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4948,6 +5403,17 @@ Transform:
   - {fileID: 1976140543}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1438309890 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4418250069012031062, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+  m_PrefabInstance: {fileID: 1036756852}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1440029631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5000,6 +5466,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformVine (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780083267529092225, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5020,7 +5498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1448475482}
   - component: {fileID: 1448475483}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5188,7 +5666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1530195173}
   - component: {fileID: 1530195174}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5272,7 +5750,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1538029289}
   - component: {fileID: 1538029290}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 3 platforms_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5407,7 +5885,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5432,7 +5910,7 @@ Transform:
   m_GameObject: {fileID: 1539388630}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 54.6, y: 1.2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5448,7 +5926,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1571494163}
   - component: {fileID: 1571494164}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: upper right platform separate (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5532,7 +6010,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1588220314}
   - component: {fileID: 1588220315}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: upper right platform separate (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5616,7 +6094,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1671131150}
   - component: {fileID: 1671131151}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bottom plat (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5742,6 +6220,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformVine (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780083267529092225, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5804,6 +6294,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformVine (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780083267529092225, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5814,6 +6316,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1369921139983382979, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
   m_PrefabInstance: {fileID: 1706100827}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1744750061
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 680886680209344464, guid: 09496196f6451704cadb9795085c3084, type: 3}
+      propertyPath: m_Name
+      value: PlayerSpawnAreas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057649211081148647, guid: 09496196f6451704cadb9795085c3084, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.199999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057649211081148647, guid: 09496196f6451704cadb9795085c3084, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.37801498
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057649211081148647, guid: 09496196f6451704cadb9795085c3084, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057649211081148647, guid: 09496196f6451704cadb9795085c3084, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057649211081148647, guid: 09496196f6451704cadb9795085c3084, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057649211081148647, guid: 09496196f6451704cadb9795085c3084, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057649211081148647, guid: 09496196f6451704cadb9795085c3084, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057649211081148647, guid: 09496196f6451704cadb9795085c3084, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057649211081148647, guid: 09496196f6451704cadb9795085c3084, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057649211081148647, guid: 09496196f6451704cadb9795085c3084, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947744295447718797, guid: 09496196f6451704cadb9795085c3084, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947744295447718797, guid: 09496196f6451704cadb9795085c3084, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.78
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 09496196f6451704cadb9795085c3084, type: 3}
 --- !u!1001 &1768360694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5865,6 +6432,18 @@ PrefabInstance:
     - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
       propertyPath: m_Name
       value: PlatformVine (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780083267529092225, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5928,6 +6507,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformVine (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780083267529092225, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5948,7 +6539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1834803070}
   - component: {fileID: 1834803071}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6032,7 +6623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1857174317}
   - component: {fileID: 1857174318}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 4 extensions (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6116,7 +6707,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1860271227}
   - component: {fileID: 1860271228}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: upper right platform separate (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6200,7 +6791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1865847142}
   - component: {fileID: 1865847141}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6284,7 +6875,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1869675343}
   - component: {fileID: 1869675344}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bottom plat (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6368,7 +6959,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1876786689}
   - component: {fileID: 1876786690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6452,7 +7043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1911560792}
   - component: {fileID: 1911560793}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 1 platforms_0 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6526,6 +7117,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1922090643 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1087719606396043104, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+  m_PrefabInstance: {fileID: 1036756852}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1976140542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6534,6 +7136,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1436636866}
     m_Modifications:
+    - target: {fileID: 718109511351679577, guid: 4f83f36b131cb2c46a44b627c594a0c6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5041506841415037658, guid: 4f83f36b131cb2c46a44b627c594a0c6, type: 3}
       propertyPath: m_Name
       value: PlatformBranch (2)
@@ -6602,7 +7208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2001232454}
   - component: {fileID: 2001232455}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: upper right platform separate (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6686,7 +7292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2019643765}
   - component: {fileID: 2019643766}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bottom plat (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6770,7 +7376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2019856163}
   - component: {fileID: 2019856164}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: upper right platform separate (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6896,6 +7502,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformVine (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780083267529092225, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6911,6 +7529,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9036043318295028797, guid: 4f83f36b131cb2c46a44b627c594a0c6, type: 3}
   m_PrefabInstance: {fileID: 8334537910162696043}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2041362931 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7947744295447718797, guid: 09496196f6451704cadb9795085c3084, type: 3}
+  m_PrefabInstance: {fileID: 1744750061}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2092523353
 GameObject:
   m_ObjectHideFlags: 0
@@ -6922,7 +7545,7 @@ GameObject:
   - component: {fileID: 2092523355}
   - component: {fileID: 2092523354}
   - component: {fileID: 2092523356}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7059,7 +7682,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2099792662}
   - component: {fileID: 2099792663}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lvl 4 extensions (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7133,6 +7756,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2106273954 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4066194231119835930, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+  m_PrefabInstance: {fileID: 1036756852}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4867241609813562603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7185,6 +7819,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformVine
       objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695357072632603602, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780083267529092225, guid: 7feb2242deae2b14aa0ad19278f1aaee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7198,6 +7844,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1436636866}
     m_Modifications:
+    - target: {fileID: 718109511351679577, guid: 4f83f36b131cb2c46a44b627c594a0c6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5041506841415037658, guid: 4f83f36b131cb2c46a44b627c594a0c6, type: 3}
       propertyPath: m_Name
       value: PlatformBranch
@@ -7255,3 +7905,7 @@ SceneRoots:
   - {fileID: 1014371591}
   - {fileID: 1436636866}
   - {fileID: 816201876}
+  - {fileID: 510093374}
+  - {fileID: 1036756852}
+  - {fileID: 1744750061}
+  - {fileID: 1217502441}
