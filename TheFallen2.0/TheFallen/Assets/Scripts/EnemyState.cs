@@ -12,6 +12,7 @@ public class EnemyState : MonoBehaviour
     [SerializeField] private GameObject pointB;
     [SerializeField] private Transform _groundCheck; // Transform for ground check position
     [SerializeField] private LayerMask _groundLayer; // LayerMask for the ground layer
+    public bool canMove;
 
     private Rigidbody2D rb;
     private Transform player;
@@ -27,6 +28,7 @@ public class EnemyState : MonoBehaviour
         currentPoint = pointB?.transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        canMove = true;
 
         if (pointA == null || pointB == null)
         {
@@ -50,6 +52,9 @@ public class EnemyState : MonoBehaviour
         float distanceToPlayer = player != null ? Vector2.Distance(transform.position, player.position) : Mathf.Infinity;
 
         Debug.Log($"Distance to Player: {distanceToPlayer}");
+
+        if (!canMove)
+            return;
 
         if (distanceToPlayer <= attackRange && player != null)
         {

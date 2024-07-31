@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2475117359932918539}
   - component: {fileID: 1303955370613040760}
   - component: {fileID: 6159600143231172102}
-  - component: {fileID: 4691421230377621178}
+  - component: {fileID: 2636043250690115764}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -112,7 +112,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1bd85f009c9a7db4289a4ae2d3d3489a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.26, y: 3.26}
@@ -236,7 +236,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4691421230377621178
+--- !u!114 &2636043250690115764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,11 +251,12 @@ MonoBehaviour:
   detectionRange: 5
   attackRange: 2
   jumpForce: 1.5
+  speed: 2
+  patrolPauseDuration: 2
   pointA: {fileID: 0}
   pointB: {fileID: 0}
-  speed: 2
   _groundCheck: {fileID: 256099737517261019}
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 0
-  patrolPauseDuration: 2
+    m_Bits: 64
+  canMove: 1
