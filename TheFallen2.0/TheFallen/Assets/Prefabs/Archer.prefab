@@ -337,11 +337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6186ffdb91df17645a69906f14ba4bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
-  _maxHealth: 0
-  _attackPoints: 0
-  _defensePoints: 0
-  _attackSpeed: 0
+  _health: 100
+  _maxHealth: 100
   isFacingRight: 1
   isWalking: 0
   isGrounded: 0
@@ -350,12 +347,6 @@ MonoBehaviour:
   canMove: 1
   isUsingSkill: 0
   isDead: 0
-  skill1CD: 0
-  canUseSkill1: 0
-  skill2CD: 0
-  canUseSkill2: 0
-  skill3CD: 0
-  canUseSkill3: 0
   character: 2
 --- !u!114 &8202717334398784781
 MonoBehaviour:

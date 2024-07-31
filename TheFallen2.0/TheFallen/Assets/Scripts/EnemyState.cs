@@ -22,6 +22,7 @@ public class EnemyState : MonoBehaviour
     private bool isGrounded = false;
     private bool isPatrolling = true;
     private bool facingRight = true;
+    private bool isAttacking = false;
 
     void Start()
     {
@@ -148,6 +149,7 @@ public class EnemyState : MonoBehaviour
 
     private void AttackPlayer()
     {
+        anim.SetTrigger("attack");
         Debug.Log("Attacking player!");
     }
 

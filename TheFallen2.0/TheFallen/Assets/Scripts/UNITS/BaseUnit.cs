@@ -8,9 +8,6 @@ public class BaseUnit : MonoBehaviour
     [Header("Character Stats")]
     [SerializeField] private float _health;
     [SerializeField] private float _maxHealth;
-    [SerializeField] private float _attackPoints;
-    [SerializeField] private float _defensePoints;
-    [SerializeField] private float _attackSpeed;
 
     [Header("Booleans")]
     public bool isFacingRight = true;
@@ -21,55 +18,38 @@ public class BaseUnit : MonoBehaviour
     public bool canMove;
     public bool isUsingSkill;
 
+    private Animator anim;
+
     [Header("Unit Status")]
     public bool isDead = false;
-
-    [Header("Skill 1")]
-    public float skill1CD;
-    public bool canUseSkill1;
-
-    [Header("Skill 2")]
-    public float skill2CD;
-    public bool canUseSkill2;
-
-    [Header("Skill 3")]
-    public float skill3CD;
-    public bool canUseSkill3;
     #endregion
 
     #region GETTERS AND SETTERS
     public float Health { get { return _health; } set { _health = value; } }
     public float MaxHealth { get { return _maxHealth; } set { _maxHealth = value; } }
-    public float AttackPoints { get { return _attackPoints; } set { _attackPoints = value; } }
-    public float DefensePoints { get { return _defensePoints; } set { _defensePoints = value; } }
-    public float AttackSpeed { get { return _attackSpeed; } set { _attackSpeed = value; } }
     #endregion
 
     #region UNITY FUNCTIONS
     private void Start()
     {
         canMove = true;
-    }
-    #endregion
-
-    #region PUBLIC FUNCTIONS
-
-    #endregion
-
-    #region OVERRIDE FUNCTIONS
-    public virtual void ActivateSkill1()
-    {
-
+        anim = GetComponent<Animator>();
     }
 
-    public virtual void ActivateSkill2()
+    public void TakeDamage(float damageAmount)
     {
-
+        anim.SetTrigger("damaged");
+        _health -= damageAmount;
+        if(_health <= 0 )
+        {
+            _health = 0;
+            Die();
+        }
     }
 
-    public virtual void ActivateSkill3()
+    public virtual void Die()
     {
-
+        isDead = true;
     }
     #endregion
 }
