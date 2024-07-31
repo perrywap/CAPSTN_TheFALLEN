@@ -35,17 +35,6 @@ public class Spear : MonoBehaviour
         Destroy(gameObject);
     }
 
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    Enemy enemy = collision.GetComponent<Enemy>();
-
-    //    if (enemy != null)
-    //    {
-    //        enemy.rb.velocity = impalePoint.transform.position;
-    //    }
-    //}
-
     private void CheckAttackHitBox()
     {
         Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(hitBoxPos.position, hitBoxRadius, layer);

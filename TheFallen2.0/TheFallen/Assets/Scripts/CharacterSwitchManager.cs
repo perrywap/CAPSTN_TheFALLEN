@@ -168,16 +168,6 @@ public class CharacterSwitchManager : MonoBehaviour
         }
     }
 
-    //private void PlaySwitchSound(int index)
-    //{
-    //    // Play the audio clip for the corresponding character switch
-    //    if (audioSource != null && switchAudioClip.Length > index && switchAudioClip[index] != null)
-    //    {
-    //        audioSource.clip = switchAudioClip[index];
-    //        audioSource.Play();
-    //    }
-    //}
-
     private IEnumerator StartSwitchCooldown(int index)
     {
         HudManager.Instance.iconImages[index].fillAmount = 0 / switchCooldown;

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerCheckpointProgression : MonoBehaviour
 {
-    public CharacterSwitchManager characterSwitchManager;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            Transform playerTransform = collision.transform;
+        Player player = collision.GetComponent<Player>();
 
-            characterSwitchManager.SwitchUpdate(playerTransform);
+        if (player != null)
+        {
+            CheckpointManager.Instance.currentCheckpoint = this.transform;
+            Debug.Log("Current checkpoint is " + this.name);
         }
     }
 }
