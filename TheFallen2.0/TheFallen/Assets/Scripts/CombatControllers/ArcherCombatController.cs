@@ -18,6 +18,7 @@ public class ArcherCombatController : CombatController
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
     }
 
     private void OnBowDraw()

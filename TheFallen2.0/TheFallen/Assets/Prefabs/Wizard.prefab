@@ -441,6 +441,7 @@ MonoBehaviour:
   - {fileID: 2818205262532354362}
   - {fileID: 1341124850082156815}
   - {fileID: 7814214489409784207}
+  - {fileID: 0}
 --- !u!82 &1328078371908891579
 AudioSource:
   m_ObjectHideFlags: 0

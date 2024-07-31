@@ -24,7 +24,6 @@ public class EnemyState : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player")?.transform;
         currentPoint = pointB?.transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -32,11 +31,6 @@ public class EnemyState : MonoBehaviour
         if (pointA == null || pointB == null)
         {
             Debug.LogError("Point A or Point B is not assigned in the Inspector");
-        }
-
-        if (player == null)
-        {
-            Debug.LogError("Player not found. Ensure the player has the 'Player' tag.");
         }
 
         if (rb == null)
@@ -82,6 +76,11 @@ public class EnemyState : MonoBehaviour
 
         CheckGrounded();
         UpdateAnimation(); // Added this to ensure animation update is called
+    }
+
+    private void FixedUpdate()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Patrol()

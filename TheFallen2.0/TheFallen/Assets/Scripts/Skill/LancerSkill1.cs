@@ -50,13 +50,16 @@ public class LancerSkill1 : SkillBase
 
     public override void ActivateSkill()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
+        if (canUseSkill && GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isGrounded)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
 
-        SpawnFallLocationGO();
-        PlaySkillActivationSound();
+            SpawnFallLocationGO();
+            PlaySkillActivationSound();
 
-        StartCoroutine(launching());
+            StartCoroutine(launching());
+        }
     }
 
     private void SpawnFallLocationGO()
@@ -135,6 +138,7 @@ public class LancerSkill1 : SkillBase
         GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("highJumpActive", false);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = false;
+        StartCoroutine(SkillOnCoolDown());
     }
 
     private void PlaySkillActivationSound()

@@ -148,6 +148,15 @@ public class CharacterSwitchManager : MonoBehaviour
 
         lastCharacterIndex = index;
     }
+    public Transform SwitchTransform
+    {
+        get { return switchLocation; }
+    }
+
+    public void SwitchUpdate(Transform newTransform)
+    {
+        switchLocation = newTransform;
+    }
     #endregion
 
     private void CooldownIcon()
@@ -158,16 +167,6 @@ public class CharacterSwitchManager : MonoBehaviour
                 HudManager.Instance.iconImages[i].fillAmount += Time.deltaTime / switchCooldown;
         }
     }
-
-    //private void PlaySwitchSound(int index)
-    //{
-    //    // Play the audio clip for the corresponding character switch
-    //    if (audioSource != null && switchAudioClip.Length > index && switchAudioClip[index] != null)
-    //    {
-    //        audioSource.clip = switchAudioClip[index];
-    //        audioSource.Play();
-    //    }
-    //}
 
     private IEnumerator StartSwitchCooldown(int index)
     {

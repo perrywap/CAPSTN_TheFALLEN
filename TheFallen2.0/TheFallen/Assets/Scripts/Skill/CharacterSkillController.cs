@@ -18,6 +18,7 @@ public class CharacterSkillController : MonoBehaviour
             if (skills[0] == null)
                 return;
 
+            HudManager.Instance.skillImage[0].fillAmount = 0;
             skills[0].ActivateSkill();
         }
 

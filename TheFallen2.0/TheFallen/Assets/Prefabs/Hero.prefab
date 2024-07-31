@@ -703,6 +703,10 @@ PrefabInstance:
       propertyPath: _dashingSpeed
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 1139420540025425374, guid: 9d13e6dc0595ad842980f796e5ca20d4, type: 3}
+      propertyPath: skillCooldown
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4064037517650663930, guid: 9d13e6dc0595ad842980f796e5ca20d4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 646.37866
@@ -920,6 +924,10 @@ PrefabInstance:
       propertyPath: skillSound
       value: 
       objectReference: {fileID: 8300000, guid: 9838dd7d2f81bab498bc70b7278e70f9, type: 3}
+    - target: {fileID: 4631500903916354415, guid: c991f39d34787f341ad45f7a8b5eed1e, type: 3}
+      propertyPath: skillCooldown
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7544574707052831147, guid: c991f39d34787f341ad45f7a8b5eed1e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.98

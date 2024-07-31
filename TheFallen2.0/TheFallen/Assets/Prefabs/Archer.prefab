@@ -313,7 +313,7 @@ MonoBehaviour:
   WhatIsDamageable:
     serializedVersion: 2
     m_Bits: 128
-  attackSound: {fileID: 6310865925566720557}
+  attackSoundClip: {fileID: 0}
   gotInput: 0
   isFirstAttack: 0
   attackCount: 0
@@ -373,6 +373,7 @@ MonoBehaviour:
   - {fileID: 3860566012015156819}
   - {fileID: 4460805778655413536}
   - {fileID: 8164301783848242001}
+  - {fileID: 0}
 --- !u!82 &6310865925566720557
 AudioSource:
   m_ObjectHideFlags: 0
