@@ -311,4 +311,4 @@ MonoBehaviour:
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 512
-  attackDamage: 0
+  attackDamage: 10

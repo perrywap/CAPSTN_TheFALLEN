@@ -13,7 +13,7 @@ public class HeroSkill1 : SkillBase
 
     public bool isDashing;
 
-    private void Start()
+    private void FixedUpdate()
     {
         trailRenderer = GameObject.FindGameObjectWithTag("Player").GetComponent<TrailRenderer>();
         audioSource = GameObject.FindGameObjectWithTag("Player").AddComponent<AudioSource>();
