@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 8f48598b17715e7468bb7ea50797fa11
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - skillImage: {instanceID: 0}
+  - ultSwordPrefab: {instanceID: 0}
+  - spawnPosition: {instanceID: 0}
+  - landingPosition: {instanceID: 0}
+  - skillSound: {fileID: 8300000, guid: 9838dd7d2f81bab498bc70b7278e70f9, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
