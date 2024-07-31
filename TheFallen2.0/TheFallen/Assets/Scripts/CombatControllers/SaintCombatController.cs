@@ -6,6 +6,7 @@ public class SaintCombatController : CombatController
 {
     private Saint saint;
 
+    public AudioSource attackSound;
     protected override void Start()
     {
         base.Start();  // Call the base class Start method
