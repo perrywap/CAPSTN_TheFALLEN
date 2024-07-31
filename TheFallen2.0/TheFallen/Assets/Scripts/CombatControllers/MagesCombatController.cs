@@ -8,17 +8,6 @@ public class MagesCombatController : CombatController
     [SerializeField] private Transform projectileSpawnArea;
     [SerializeField] private float projectileForce;
 
-    protected override void Start()
-    {
-        base.Start();  // Call base class Start method
-
-        // Ensure the AudioSource component is assigned
-        if (attackSound == null)
-        {
-            attackSound = GetComponent<AudioSource>();
-        }
-    }
-
     public override void CheckCombatInput()
     {
         if (this.GetComponent<Player>().isAttacking)
@@ -38,12 +27,6 @@ public class MagesCombatController : CombatController
             if (combatEnabled)
             {
                 gotInput = true;
-
-                // Play the attack sound
-                if (attackSound != null)
-                {
-                    attackSound.Play();
-                }
             }
         }
     }

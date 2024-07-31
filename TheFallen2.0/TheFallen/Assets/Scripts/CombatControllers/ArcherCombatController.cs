@@ -10,15 +10,15 @@ public class ArcherCombatController : CombatController
     [SerializeField] private bool startedDrawing;
     public float drawTimer;
 
-    protected override void Start()
-    {
-        base.Start();  // Call the base class Start method
+    [Header("Sound Settings")]
+    [SerializeField] private AudioClip bowDrawSound;
+    [SerializeField] private AudioClip bowReleaseSound;
+    private AudioSource audioSource;
 
-        // Ensure the AudioSource component is assigned
-        if (attackSound == null)
-        {
-            attackSound = GetComponent<AudioSource>();
-        }
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
     }
 
     private void OnBowDraw()
@@ -29,6 +29,7 @@ public class ArcherCombatController : CombatController
         if (combatEnabled)
         {
             anim.SetBool("isDrawing", true);
+            PlayBowDrawSound();
         }
         StartCoroutine(DrawTime());
     }
@@ -42,11 +43,7 @@ public class ArcherCombatController : CombatController
         this.GetComponent<Player>().isAttacking = false;
         anim.SetBool("isDrawing", false);
 
-        // Play the attack sound when the bow is released
-        if (attackSound != null)
-        {
-            attackSound.Play();
-        }
+        PlayBowReleaseSound();
     }
 
     public override void CheckCombatInput()
@@ -102,6 +99,22 @@ public class ArcherCombatController : CombatController
             if (anim.GetBool("isDrawing") == false)
                 break;
             yield return new WaitForSeconds(Time.deltaTime);
+        }
+    }
+
+    private void PlayBowDrawSound()
+    {
+        if (audioSource != null && bowDrawSound != null)
+        {
+            audioSource.PlayOneShot(bowDrawSound);
+        }
+    }
+
+    private void PlayBowReleaseSound()
+    {
+        if (audioSource != null && bowReleaseSound != null)
+        {
+            audioSource.PlayOneShot(bowReleaseSound);
         }
     }
 }

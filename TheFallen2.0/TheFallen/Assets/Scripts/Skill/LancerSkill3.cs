@@ -10,15 +10,18 @@ public class LancerSkill3 : SkillBase
     [SerializeField] private float launchForce;
 
     [Header("Sound Settings")]
-    [SerializeField] private AudioClip throwSound;  // Assign your AudioClip in the inspector
+    [SerializeField] private AudioClip skillSound;
     private AudioSource audioSource;
 
     public bool isShooting;
 
     private void Start()
     {
-        // Get the AudioSource component attached to the same GameObject
         audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     private void FixedUpdate()
@@ -32,12 +35,15 @@ public class LancerSkill3 : SkillBase
 
     public override void ActivateSkill()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("isThrowingSpear");
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
+        if (canUseSkill && GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isGrounded)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("isThrowingSpear");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
 
-        PlayThrowSound();  // Play sound effect when the skill is activated
-        StartCoroutine(ModifyRBVelocity());
+            PlaySkillSound(); // Play the skill sound
+            StartCoroutine(ModifyRBVelocity());
+        }       
     }
 
     public void ThrowSpear()
@@ -53,18 +59,14 @@ public class LancerSkill3 : SkillBase
         GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         yield return new WaitForSeconds(.5f);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = false;
+        StartCoroutine(SkillOnCoolDown());
     }
 
-    private void PlayThrowSound()
+    private void PlaySkillSound()
     {
-        if (audioSource && throwSound)
+        if (audioSource != null && skillSound != null)
         {
-            Debug.Log("Playing throw sound");
-            audioSource.PlayOneShot(throwSound);
-        }
-        else
-        {
-            Debug.LogWarning("AudioSource or throwSound is missing");
+            audioSource.PlayOneShot(skillSound);
         }
     }
 }

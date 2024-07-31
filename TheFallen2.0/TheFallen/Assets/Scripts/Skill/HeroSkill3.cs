@@ -12,11 +12,14 @@ public class HeroSkill3 : SkillBase
 
     public override void ActivateSkill()
     {
-        StartCoroutine(ModifyRBVelocity());
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
-  
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("isUsingAura");
-        ApplyKnockBack();
+        if(canUseSkill)
+        {
+            StartCoroutine(ModifyRBVelocity());
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
+
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("isUsingAura");
+            ApplyKnockBack();
+        }
     }
 
     public void ApplyKnockBack()
@@ -42,5 +45,6 @@ public class HeroSkill3 : SkillBase
         GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         yield return new WaitForSeconds(.5f);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = false;
+        StartCoroutine(SkillOnCoolDown());
     }
 }

@@ -9,7 +9,8 @@ public class CombatController : MonoBehaviour
     public float attackDamage;
     [SerializeField] private Transform attack1HitBoxPos;
     [SerializeField] private LayerMask WhatIsDamageable;
-    [SerializeField] protected AudioSource attackSound;  // Add this line
+    [SerializeField] private AudioClip attackSoundClip;
+    private AudioSource attackSoundSource;
 
     public bool gotInput;
     public bool isFirstAttack;
@@ -25,11 +26,11 @@ public class CombatController : MonoBehaviour
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
 
-        // Ensure the AudioSource component is assigned
-        if (attackSound == null)
-        {
-            attackSound = GetComponent<AudioSource>();
-        }
+        // Create a new AudioSource for attack sounds
+        attackSoundSource = gameObject.AddComponent<AudioSource>();
+        attackSoundSource.clip = attackSoundClip;
+        attackSoundSource.spatialBlend = 0; // 2D sound
+        attackSoundSource.dopplerLevel = 0; // No pitch change with movement
     }
 
     private void Update()
@@ -63,9 +64,9 @@ public class CombatController : MonoBehaviour
                 anim.SetInteger("attackCount", attackCount);
 
                 // Play the attack sound
-                if (attackSound != null)
+                if (attackSoundSource != null)
                 {
-                    attackSound.Play();
+                    attackSoundSource.Play();
                 }
             }
         }
@@ -85,35 +86,26 @@ public class CombatController : MonoBehaviour
                 switch (attackCount)
                 {
                     case 1:
-                        {
-                            anim.SetBool("attack1", true);
-                            isFirstAttack = false;
-                            break;
-                        }
+                        anim.SetBool("attack1", true);
+                        isFirstAttack = false;
+                        break;
                     case 2:
-                        {
-                            anim.SetBool("attack1", false);
-                            anim.SetBool("attack2", true);
-                            isFirstAttack = false;
-                            break;
-                        }
+                        anim.SetBool("attack1", false);
+                        anim.SetBool("attack2", true);
+                        isFirstAttack = false;
+                        break;
                     case 3:
-                        {
-                            anim.SetBool("attack2", false);
-                            anim.SetBool("attack3", true);
-                            isFirstAttack = false;
-                            break;
-                        }
+                        anim.SetBool("attack2", false);
+                        anim.SetBool("attack3", true);
+                        isFirstAttack = false;
+                        break;
                     case 4:
-                        {
-                            anim.SetBool("attack3", false);
-                            anim.SetBool("attack4", true);
-                            isFirstAttack = false;
-
-                            attackCount = 0;
-                            isFirstAttack = true;
-                            break;
-                        }
+                        anim.SetBool("attack3", false);
+                        anim.SetBool("attack4", true);
+                        isFirstAttack = false;
+                        attackCount = 0;
+                        isFirstAttack = true;
+                        break;
                 }
             }
         }

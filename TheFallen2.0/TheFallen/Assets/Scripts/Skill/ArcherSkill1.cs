@@ -14,7 +14,7 @@ public class ArcherSkill1 : SkillBase
 
     private void Start()
     {
-        // Assuming the AudioSource is on the same GameObject
+
         audioSource = GetComponent<AudioSource>();
     }
 

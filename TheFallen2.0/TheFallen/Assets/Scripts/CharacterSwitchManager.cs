@@ -1,17 +1,27 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CharacterSwitchManager : MonoBehaviour
+public class CharacterSwitchManager : MonoBehaviour 
 {
     #region VARIABLES
-    [SerializeField] private GameObject[] playerPrefabs;
+    [Header("PlayerGO")]
     [SerializeField] private GameObject playerGO;
+    [SerializeField] private GameObject[] playerPrefabs;
+
+    [Header("Switch Settings")]
     [SerializeField] private Transform switchLocation;
-    [SerializeField] private AudioClip[] switchAudioClips;
-    private AudioSource audioSource;
+    [SerializeField] private float switchCooldown;
+    public bool[] canSwitch = new bool[5];
+    private int lastCharacterIndex = 0;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip switchAudioClip;
 
     public static CharacterSwitchManager Instance { get; private set; }
     #endregion
@@ -24,19 +34,19 @@ public class CharacterSwitchManager : MonoBehaviour
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            audioSource = gameObject.AddComponent<AudioSource>();
-        }
+        audioSource = this.GetComponent<AudioSource>();
         SwitchCharacter(0);
+        canSwitch[0] = true;
+        canSwitch[1] = true;
+        canSwitch[2] = true;
+        canSwitch[3] = true;
+        canSwitch[4] = true;
     }
-
     private void Update()
     {
         CheckSwitch();
+        CooldownIcon();
     }
-
     private void LateUpdate()
     {
         if (playerGO == null)
@@ -53,53 +63,70 @@ public class CharacterSwitchManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                Debug.Log("Switched to HERO");
-                PlaySwitchSound(0);
-                SwitchCharacter(0);
+                if (playerGO.GetComponent<Player>().character == Character.HERO)
+                    return;
+
+                if (canSwitch[0])
+                {
+                    StartCoroutine(StartSwitchCooldown(lastCharacterIndex));
+                    SwitchCharacter(0);
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                Debug.Log("Switched to LANCER");
-                PlaySwitchSound(1);
-                SwitchCharacter(1);
+                if (playerGO.GetComponent<Player>().character == Character.LANCER)
+                    return;
+
+                if (canSwitch[1])
+                {
+                    StartCoroutine(StartSwitchCooldown(lastCharacterIndex));
+                    SwitchCharacter(1);
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                Debug.Log("Switched to ARCHER");
-                PlaySwitchSound(2);
-                SwitchCharacter(2);
+                if (playerGO.GetComponent<Player>().character == Character.ARCHER)
+                    return;
+
+                if (canSwitch[2])
+                {
+                    StartCoroutine(StartSwitchCooldown(lastCharacterIndex));
+                    SwitchCharacter(2);
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
-                Debug.Log("Switched to WIZARD");
-                PlaySwitchSound(3);
-                SwitchCharacter(3);
+                if (playerGO.GetComponent<Player>().character == Character.WIZARD)
+                    return;
+
+                if (canSwitch[3])
+                {
+                    StartCoroutine(StartSwitchCooldown(lastCharacterIndex));
+                    SwitchCharacter(3);
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha5))
             {
-                Debug.Log("Switched to SAINT");
-                PlaySwitchSound(4);
-                SwitchCharacter(4);
-            }
-        }
-    }
+                if (playerGO.GetComponent<Player>().character == Character.SAINT)
+                    return;
 
-    private void PlaySwitchSound(int index)
-    {
-        // Play the audio clip for the corresponding character switch
-        if (audioSource != null && switchAudioClips.Length > index && switchAudioClips[index] != null)
-        {
-            audioSource.clip = switchAudioClips[index];
-            audioSource.Play();
+                if (canSwitch[4])
+                {
+                    StartCoroutine(StartSwitchCooldown(lastCharacterIndex));
+                    SwitchCharacter(4);
+                }
+            }
         }
     }
 
     private void SwitchCharacter(int index)
     {
+        audioSource.Play();
+
         Vector3 localscale = Vector3.one;
 
         if (playerGO != null)
@@ -110,14 +137,42 @@ public class CharacterSwitchManager : MonoBehaviour
         }
 
         playerGO = Instantiate(playerPrefabs[index], switchLocation.position, Quaternion.identity);
-
-        if (localscale.x < 0)
+        
+        if(localscale.x < 0)
         {
             playerGO.GetComponent<Player>().isFacingRight = false;
         }
         playerGO.transform.localScale = localscale;
-
         Player player = playerGO.GetComponent<Player>();
+        HudManager.Instance.UpdateSkillIcons(index, playerGO);
+
+        lastCharacterIndex = index;
+    }
+    public Transform SwitchTransform
+    {
+        get { return switchLocation; }
+    }
+
+    public void SwitchUpdate(Transform newTransform)
+    {
+        switchLocation = newTransform;
     }
     #endregion
+
+    private void CooldownIcon()
+    {
+        for (int i = 0; i < canSwitch.Length; i++)
+        {
+            if (!canSwitch[i])
+                HudManager.Instance.iconImages[i].fillAmount += Time.deltaTime / switchCooldown;
+        }
+    }
+
+    private IEnumerator StartSwitchCooldown(int index)
+    {
+        HudManager.Instance.iconImages[index].fillAmount = 0 / switchCooldown;
+        canSwitch[index] = false;
+        yield return new WaitForSecondsRealtime(switchCooldown);
+        canSwitch[index] = true;
+    }
 }

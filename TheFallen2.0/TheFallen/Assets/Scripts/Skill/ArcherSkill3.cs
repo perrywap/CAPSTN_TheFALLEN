@@ -7,6 +7,9 @@ public class ArcherSkill3 : SkillBase
     [SerializeField] private Transform spawnArea;
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private float projectileForce;
+    [SerializeField] private float radius;
+    [SerializeField] private float delayTime;
+    [SerializeField] private float repeatRate;
 
     [Header("Sound Settings")]
     [SerializeField] private AudioClip shootSound;
@@ -16,7 +19,6 @@ public class ArcherSkill3 : SkillBase
 
     private void Start()
     {
-        // Assuming the AudioSource is on the same GameObject
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -33,12 +35,12 @@ public class ArcherSkill3 : SkillBase
     {
         StartCoroutine(ModifyRBVelocity());
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("shootArrows");
-        PlayShootSound();  // Play sound effect only once when the skill is activated
+        PlayShootSound();
     }
 
     private void Shoot()
     {
-        GameObject arrow = Instantiate(arrowPrefab, new Vector3(spawnArea.position.x + Random.Range(-5f, 5f), spawnArea.position.y, 0), Quaternion.Euler(0, 0, -90));
+        GameObject arrow = Instantiate(arrowPrefab, new Vector3(spawnArea.position.x + Random.Range(-radius, radius), spawnArea.position.y, 0), Quaternion.Euler(0, 0, -90));
         Projectile projectile = arrow.GetComponent<Projectile>();
 
         arrow.GetComponent<Rigidbody2D>().velocity = -spawnArea.up * projectileForce;
@@ -59,11 +61,10 @@ public class ArcherSkill3 : SkillBase
 
     private IEnumerator RainArrow()
     {
-        InvokeRepeating("Shoot", 0.2f, 0.01f);
+        InvokeRepeating("Shoot", delayTime, repeatRate);
         yield return new WaitForSecondsRealtime(1f);
         CancelInvoke("Shoot");
     }
-
     private IEnumerator ModifyRBVelocity()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;

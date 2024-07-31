@@ -8,6 +8,18 @@ public class WizardSkill1 : SkillBase
     [SerializeField] private float floatMoveSpeed;
     private float movementInputDirection;
 
+    [SerializeField] private AudioClip skillSoundClip; 
+    private AudioSource skillSoundSource; 
+
+    private void Start()
+    {
+    
+        skillSoundSource = gameObject.AddComponent<AudioSource>();
+        skillSoundSource.clip = skillSoundClip;
+        skillSoundSource.spatialBlend = 0; 
+        skillSoundSource.dopplerLevel = 0; 
+    }
+
     private void Update()
     {
         FloatMoveInput();
@@ -28,6 +40,12 @@ public class WizardSkill1 : SkillBase
 
     public override void ActivateSkill()
     {
+        // Play the skill sound
+        if (skillSoundSource != null && skillSoundClip != null)
+        {
+            skillSoundSource.Play();
+        }
+
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("isFloating", true);
 
         StartCoroutine(launch());
@@ -65,7 +83,6 @@ public class WizardSkill1 : SkillBase
         GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = false;
 
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("isFloating", isFloating); 
-
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("isFloating", isFloating);
     }
 }
