@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ArcherCombatController : CombatController
@@ -15,10 +16,9 @@ public class ArcherCombatController : CombatController
     [SerializeField] private AudioClip bowReleaseSound;
     private AudioSource audioSource;
 
-    private void Start()
+    private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        anim = GetComponent<Animator>();
     }
 
     private void OnBowDraw()
