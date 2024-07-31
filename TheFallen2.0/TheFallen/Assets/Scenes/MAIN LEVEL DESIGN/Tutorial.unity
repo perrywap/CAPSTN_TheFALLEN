@@ -866,14 +866,14 @@ MonoBehaviour:
   detectionRange: 5
   attackRange: 2
   jumpForce: 1.5
+  speed: 2
+  patrolPauseDuration: 2
   pointA: {fileID: 884963884}
   pointB: {fileID: 1463284538}
-  speed: 2
   _groundCheck: {fileID: 1514726374}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  patrolPauseDuration: 2
 --- !u!1 &827134178
 GameObject:
   m_ObjectHideFlags: 0

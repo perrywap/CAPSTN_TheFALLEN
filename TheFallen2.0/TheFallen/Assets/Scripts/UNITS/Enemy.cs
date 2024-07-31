@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
     private float knockBackStart;
 
     private GameObject player;
-    private GameObject aliveGO, deadGO;
     public Rigidbody2D rb;
     private Animator aliveAnim;
 

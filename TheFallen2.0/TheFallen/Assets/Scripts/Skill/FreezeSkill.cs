@@ -6,15 +6,17 @@ public class FreezeSkill : MonoBehaviour
 {
     private void Start()
     {
-        this.GetComponent<ParticleSystem>().Stop();
+        StartCoroutine(DisposeGO());
     }
 
-    private void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            this.GetComponent<ParticleSystem>().Play();
+        
+    }
 
-        }
+    private IEnumerator DisposeGO()
+    {
+        yield return new WaitForSeconds(2.5f);
+        Destroy(gameObject);
     }
 }

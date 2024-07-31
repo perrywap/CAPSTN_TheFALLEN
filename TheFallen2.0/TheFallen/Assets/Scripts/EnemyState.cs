@@ -6,12 +6,12 @@ public class EnemyState : MonoBehaviour
     [SerializeField] private float detectionRange = 5f;
     [SerializeField] private float attackRange = 2f;
     [SerializeField] private float jumpForce = 1.5f;
+    [SerializeField] private float speed = 2f;
+    [SerializeField] private float patrolPauseDuration = 2f; // Duration to pause at patrol points
     [SerializeField] private GameObject pointA;
     [SerializeField] private GameObject pointB;
-    [SerializeField] private float speed = 2f;
     [SerializeField] private Transform _groundCheck; // Transform for ground check position
     [SerializeField] private LayerMask _groundLayer; // LayerMask for the ground layer
-    [SerializeField] private float patrolPauseDuration = 2f; // Duration to pause at patrol points
 
     private Rigidbody2D rb;
     private Transform player;
