@@ -148,6 +148,15 @@ public class CharacterSwitchManager : MonoBehaviour
 
         lastCharacterIndex = index;
     }
+    public Transform SwitchTransform
+    {
+        get { return switchLocation; }
+    }
+
+    public void SwitchUpdate(Transform newTransform)
+    {
+        switchLocation = newTransform;
+    }
     #endregion
 
     private void CooldownIcon()
