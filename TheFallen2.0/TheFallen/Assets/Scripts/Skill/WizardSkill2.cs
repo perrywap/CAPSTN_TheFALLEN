@@ -5,41 +5,33 @@ using UnityEngine;
 
 public class WizardSkill2 : SkillBase
 {
-    [SerializeField] private ParticleSystem freezeParticle;
-    [SerializeField] private AudioClip skillSoundClip; 
-    private AudioSource skillSoundSource; 
+    [SerializeField] private GameObject freezePrefab;
+    [SerializeField] private Transform freezeSpawnPos;
 
-    private void Start()
-    {
-        
-        skillSoundSource = gameObject.AddComponent<AudioSource>();
-        skillSoundSource.clip = skillSoundClip;
-        skillSoundSource.spatialBlend = 0; 
-        skillSoundSource.dopplerLevel = 0; 
-    }
+    private GameObject freezeGO;
 
     public override void ActivateSkill()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
-
-        freezeParticle.Play();
-
-        
-        if (skillSoundSource != null && skillSoundClip != null)
+        if (canUseSkill && GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isGrounded)
         {
-            skillSoundSource.Play();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
+
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isFacingRight)
+            {
+                freezeGO = Instantiate(freezePrefab, freezeSpawnPos.position, Quaternion.identity);
+            }
+            else
+                freezeGO = Instantiate(freezePrefab, freezeSpawnPos.position, Quaternion.Euler(0, 180, 0));
+
+            StartCoroutine(ModifyRBVelocity());
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private IEnumerator ModifyRBVelocity()
     {
-        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-
-        if (enemy != null)
-        {
-            Debug.Log("Is colliding");
-            enemy.transform.SendMessage("Damage", 0f);
-        }
+        yield return new WaitForSeconds(.5f);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = false;
+        StartCoroutine(SkillOnCoolDown());
     }
 }

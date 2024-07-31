@@ -6337,10 +6337,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
-    - target: {fileID: 3206739155222978357, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4700397078100583099, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -6422,7 +6418,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8383682126470899709, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+    - {fileID: -4761038318001518961, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+    - {fileID: 3485319135876331420, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
+    - {fileID: 7790888608016318236, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 962651acaf519f6469f1e9140e675f0b, type: 3}
@@ -10236,6 +10236,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1199902041}
     - target: {fileID: 4474717126326942282, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: skillCdImage.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4474717126326942282, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
       propertyPath: iconImages.Array.data[0]
       value: 
       objectReference: {fileID: 1199902040}
@@ -10271,6 +10275,22 @@ PrefabInstance:
       propertyPath: skillImage.Array.data[3]
       value: 
       objectReference: {fileID: 1199902035}
+    - target: {fileID: 4474717126326942282, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: skillCdImage.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4474717126326942282, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: skillCdImage.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4474717126326942282, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: skillCdImage.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4474717126326942282, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
+      propertyPath: skillCdImage.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5928229326440575847, guid: 62fe304e0f1ca3a4a954ebc0e2cdb101, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.235613

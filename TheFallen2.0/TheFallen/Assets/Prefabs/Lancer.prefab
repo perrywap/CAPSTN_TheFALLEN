@@ -171,7 +171,7 @@ MonoBehaviour:
   fallImpactPrefab: {fileID: 1159665283412615709, guid: 191a6bf47f06145439d021b592fb6224, type: 3}
   isHighJumping: 0
   launchTimer: 0.5
-  launchSpeed: 50
+  launchSpeed: 30
   airMoveDuration: 1.5
   dropSpeed: 100
   airMoveSpeed: 20

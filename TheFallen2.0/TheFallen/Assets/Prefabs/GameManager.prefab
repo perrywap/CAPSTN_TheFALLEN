@@ -262,6 +262,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3800768893418346202}
+  - component: {fileID: 5983376195502276228}
+  - component: {fileID: 2546848131249868432}
   m_Layer: 0
   m_Name: CheckPointManager
   m_TagString: Untagged
@@ -284,6 +286,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5928229326440575847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5983376195502276228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6202829578726332175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 354a1382a967f07479ac33fb51aefe62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2546848131249868432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6202829578726332175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af53850d700a0b641b52121449049f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  currentCheckpoint: {fileID: 0}
 --- !u!1 &7061353833599055930
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,5 +360,5 @@ MonoBehaviour:
   followCam: {fileID: 0}
   smoothTime: 0.2
   positionOffset: {x: 0, y: 0, z: -10}
-  xLimit: {x: -18.17, y: 884.3}
-  yLimit: {x: -63.2, y: 16.2}
+  xLimit: {x: -17, y: 880}
+  yLimit: {x: -65, y: 16}
