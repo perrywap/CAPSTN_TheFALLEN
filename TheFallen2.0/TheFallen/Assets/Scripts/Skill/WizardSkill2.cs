@@ -35,9 +35,7 @@ public class WizardSkill2 : SkillBase
     private void SpawnFreeze()
     {
         if (GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isFacingRight)
-        {
             freezeGO = Instantiate(freezePrefab, freezeSpawnPos.position, Quaternion.identity);
-        }
         else
             freezeGO = Instantiate(freezePrefab, freezeSpawnPos.position, Quaternion.Euler(0, 180, 0));
     }
