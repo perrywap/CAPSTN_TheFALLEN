@@ -286,9 +286,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 100
   _maxHealth: 100
-  _attackPoints: 5
-  _defensePoints: 5
-  _attackSpeed: 1
   isFacingRight: 1
   isWalking: 0
   isGrounded: 0
@@ -297,12 +294,6 @@ MonoBehaviour:
   canMove: 1
   isUsingSkill: 0
   isDead: 0
-  skill1CD: 1
-  canUseSkill1: 1
-  skill2CD: 0
-  canUseSkill2: 1
-  skill3CD: 0
-  canUseSkill3: 1
   character: 0
 --- !u!96 &-1606774096676596714
 TrailRenderer:
@@ -365,7 +356,7 @@ TrailRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 0.4819336
+        value: 0.45987475
         inSlope: 0
         outSlope: 0
         tangentMode: 0

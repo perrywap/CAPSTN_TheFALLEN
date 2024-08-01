@@ -5,41 +5,45 @@ using UnityEngine;
 
 public class WizardSkill2 : SkillBase
 {
-    [SerializeField] private ParticleSystem freezeParticle;
-    [SerializeField] private AudioClip skillSoundClip; 
-    private AudioSource skillSoundSource; 
+    [SerializeField] private GameObject freezePrefab;
+    [SerializeField] private Transform freezeSpawnPos;
+    [SerializeField] private bool isUsingFreeze;
 
-    private void Start()
+    private GameObject freezeGO;
+
+    private void FixedUpdate()
     {
-        
-        skillSoundSource = gameObject.AddComponent<AudioSource>();
-        skillSoundSource.clip = skillSoundClip;
-        skillSoundSource.spatialBlend = 0; 
-        skillSoundSource.dopplerLevel = 0; 
+        if (isUsingFreeze)
+        {
+            SpawnFreeze();
+            isUsingFreeze = false;
+        }
     }
 
     public override void ActivateSkill()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
-
-        freezeParticle.Play();
-
-        
-        if (skillSoundSource != null && skillSoundClip != null)
+        if (canUseSkill && GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isGrounded)
         {
-            skillSoundSource.Play();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("freeze");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = true;
+
+            StartCoroutine(ModifyRBVelocity());
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void SpawnFreeze()
     {
-        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isFacingRight)
+            freezeGO = Instantiate(freezePrefab, freezeSpawnPos.position, Quaternion.identity);
+        else
+            freezeGO = Instantiate(freezePrefab, freezeSpawnPos.position, Quaternion.Euler(0, 180, 0));
+    }
 
-        if (enemy != null)
-        {
-            Debug.Log("Is colliding");
-            enemy.transform.SendMessage("Damage", 0f);
-        }
+    private IEnumerator ModifyRBVelocity()
+    {
+        yield return new WaitForSeconds(.5f);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isUsingSkill = false;
+        StartCoroutine(SkillOnCoolDown());
     }
 }

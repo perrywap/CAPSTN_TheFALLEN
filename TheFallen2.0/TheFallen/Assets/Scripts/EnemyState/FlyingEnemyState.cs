@@ -1,46 +1,34 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyState : MonoBehaviour
+public class FlyingEnemyState : MonoBehaviour
 {
     [SerializeField] private float detectionRange = 5f;
     [SerializeField] private float attackRange = 2f;
-    [SerializeField] private float jumpForce = 1.5f;
-    [SerializeField] private GameObject pointA;
-    [SerializeField] private GameObject pointB;
     [SerializeField] private float speed = 2f;
-    [SerializeField] private Transform _groundCheck; // Transform for ground check position
-    [SerializeField] private LayerMask _groundLayer; // LayerMask for the ground layer
+    [SerializeField] private Transform pointA;
+    [SerializeField] private Transform pointB;
     [SerializeField] private float patrolPauseDuration = 2f; // Duration to pause at patrol points
 
-    private Rigidbody2D rb;
     private Transform player;
     private Transform currentPoint;
-    private Animator anim;
     private bool isChasing = false;
-    private bool isGrounded = false;
     private bool isPatrolling = true;
     private bool facingRight = true;
 
     void Start()
     {
-        currentPoint = pointB?.transform;
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        currentPoint = pointB;
 
         if (pointA == null || pointB == null)
         {
             Debug.LogError("Point A or Point B is not assigned in the Inspector");
         }
 
-        if (rb == null)
+        if (player == null)
         {
-            Debug.LogError("Rigidbody2D component not found. Ensure the object has a Rigidbody2D component.");
-        }
-
-        if (_groundCheck == null)
-        {
-            Debug.LogError("_groundCheck is not assigned in the Inspector");
+            Debug.LogError("Player not found. Ensure the player has the 'Player' tag.");
         }
     }
 
@@ -73,14 +61,6 @@ public class EnemyState : MonoBehaviour
                 Patrol();
             }
         }
-
-        CheckGrounded();
-        UpdateAnimation(); // Added this to ensure animation update is called
-    }
-
-    private void FixedUpdate()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Patrol()
@@ -88,11 +68,11 @@ public class EnemyState : MonoBehaviour
         if (currentPoint == null) return;
 
         Vector2 direction = (currentPoint.position - transform.position).normalized;
-        rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
+        transform.position = Vector2.MoveTowards(transform.position, currentPoint.position, speed * Time.deltaTime);
 
         if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f)
         {
-            currentPoint = currentPoint == pointB.transform ? pointA.transform : pointB.transform;
+            currentPoint = currentPoint == pointB ? pointA : pointB;
             StartCoroutine(PatrolPause());
         }
 
@@ -102,7 +82,6 @@ public class EnemyState : MonoBehaviour
     private IEnumerator PatrolPause()
     {
         isPatrolling = false;
-        rb.velocity = Vector2.zero;
         yield return new WaitForSeconds(patrolPauseDuration);
         isPatrolling = true;
     }
@@ -112,46 +91,14 @@ public class EnemyState : MonoBehaviour
         if (player == null) return;
 
         Vector2 direction = (player.position - transform.position).normalized;
-        rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
-
-        if (isGrounded && ShouldJumpTowardsPlayer(direction))
-        {
-            Debug.Log("Jumping towards player!");
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
+        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
         Flip(direction.x);
-    }
-
-    private bool ShouldJumpTowardsPlayer(Vector2 direction)
-    {
-        return direction.y > 0.5f;
-    }
-
-    private void CheckGrounded()
-    {
-        isGrounded = IsGrounded();
-        Debug.Log($"Is Grounded: {isGrounded}");
-    }
-
-    private bool IsGrounded()
-    {
-        bool grounded = Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
-        Debug.Log($"Ground Check: {grounded}");
-        return grounded;
     }
 
     private void AttackPlayer()
     {
         Debug.Log("Attacking player!");
-    }
-
-    private void UpdateAnimation()
-    {
-        if (rb.velocity.x != 0)
-            anim.SetBool("isMoving", true);
-        else
-            anim.SetBool("isMoving", false);
     }
 
     private void Flip(float directionX)
@@ -169,15 +116,9 @@ public class EnemyState : MonoBehaviour
     {
         if (pointA != null && pointB != null)
         {
-            Gizmos.DrawWireSphere(pointA.transform.position, 0.5f);
-            Gizmos.DrawWireSphere(pointB.transform.position, 0.5f);
-            Gizmos.DrawLine(pointA.transform.position, pointB.transform.position);
-        }
-
-        if (_groundCheck != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(_groundCheck.position, 0.2f);
+            Gizmos.DrawWireSphere(pointA.position, 0.5f);
+            Gizmos.DrawWireSphere(pointB.position, 0.5f);
+            Gizmos.DrawLine(pointA.position, pointB.position);
         }
     }
 }
