@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillImage: {fileID: 21300000, guid: 9ace436442b923a4296a051d8d59cff6, type: 3}
-  skillCooldown: 0
-  canUseSkill: 0
+  skillCooldown: 10
+  canUseSkill: 1
+  barrierPrefab: {fileID: 2403295469320780447, guid: a4da2b808e3b13e44bd924f196a71829, type: 3}
 --- !u!1 &2176956282336253756
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,6 +360,7 @@ MonoBehaviour:
   canJump: 0
   canMove: 1
   isUsingSkill: 0
+  isBarrierActive: 0
   isDead: 0
   character: 4
 --- !u!114 &6284297261222026365
@@ -629,8 +631,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillImage: {fileID: 21300000, guid: c7fd4fcda0d1a7f4da0433a4e609c92e, type: 3}
-  skillCooldown: 0
-  canUseSkill: 0
+  skillCooldown: 15
+  canUseSkill: 1
+  characters: []
+  healAmount: 40
 --- !u!1 &8777113077865415845
 GameObject:
   m_ObjectHideFlags: 0

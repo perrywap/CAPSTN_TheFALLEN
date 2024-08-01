@@ -17,6 +17,7 @@ public class BaseUnit : MonoBehaviour
     public bool canJump;
     public bool canMove;
     public bool isUsingSkill;
+    public bool isBarrierActive;
 
     private Animator anim;
 
@@ -38,12 +39,19 @@ public class BaseUnit : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
-        anim.SetTrigger("damaged");
-        _health -= damageAmount;
-        if(_health <= 0 )
+        if(isBarrierActive)
         {
-            _health = 0;
-            Die();
+            GameObject.FindGameObjectWithTag("Barrier").GetComponent<Barrier>().TakeDamage(damageAmount);
+        }
+        else
+        {
+            anim.SetTrigger("damaged");
+            _health -= damageAmount;
+            if (_health <= 0)
+            {
+                _health = 0;
+                Die();
+            }
         }
     }
 

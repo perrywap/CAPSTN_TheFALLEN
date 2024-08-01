@@ -11,7 +11,7 @@ public class CharacterSwitchManager : MonoBehaviour
     #region VARIABLES
     [Header("PlayerGO")]
     [SerializeField] private GameObject playerGO;
-    [SerializeField] private GameObject[] playerPrefabs;
+    public GameObject[] playerPrefabs;
 
     [Header("Switch Settings")]
     [SerializeField] private Transform switchLocation;
